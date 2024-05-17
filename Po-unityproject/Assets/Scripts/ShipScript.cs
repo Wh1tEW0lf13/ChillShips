@@ -10,14 +10,14 @@ public class ShipScript : MonoBehaviour
 
     private void Start()
     {
-        basePos = GameObject.FindGameObjectWithTag("RedBase");
+        basePos = GameObject.Find("RedBase");
     }
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed*Time.deltaTime);
 
         Vector3 Look = transform.InverseTransformDirection(target.transform.position);
-        float Angle = Mathf.Atan2(Look.y, Look.x) * Mathf.Rad2Deg+90;
+        float Angle = Mathf.Atan2(Look.y, Look.x) * Mathf.Rad2Deg-90;
 
         transform.Rotate(0, 0, Angle);
     }
