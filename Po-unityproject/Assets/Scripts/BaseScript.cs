@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Behavor : MonoBehaviour
+public class BaseScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int level;
+    public int iron;
+    public int tytan;
     void Start()
     {
-        //Jo³
-
+        
     }
 
     // Update is called once per frame

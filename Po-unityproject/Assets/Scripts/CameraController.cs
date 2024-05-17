@@ -4,11 +4,29 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float panSpeed = 20f;
-    public float scrollSpeed = 20f;
+    public float panSpeed;
+    public float scrollSpeed;
+    private float startPanSpeed;
+    private float startScroolSpeed;
     Vector3 pos;
+
+    private void Start()
+    {
+        startPanSpeed = panSpeed;
+        startScroolSpeed = scrollSpeed;
+    }
+
     void Update()
     {
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            panSpeed = 2f*startPanSpeed;
+        }
+        else
+        {
+            panSpeed = startPanSpeed;
+            scrollSpeed = startScroolSpeed;
+        }
         pos = transform.position;
         if (Input.GetKey(KeyCode.W))
         {
