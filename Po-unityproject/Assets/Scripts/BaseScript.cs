@@ -12,7 +12,7 @@ public class BaseScript : MonoBehaviour
     {
         if (ship.CompareTag(tag))
         {
-            Object.Destroy(ship.gameObject);
+            ship.
         }
     }
 }

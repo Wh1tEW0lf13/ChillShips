@@ -15,12 +15,8 @@ public class ShipScript : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed*Time.deltaTime);
-
-        Vector3 Look = transform.InverseTransformDirection(target.transform.position);
-        float Angle = Mathf.Atan2(Look.y, Look.x) * Mathf.Rad2Deg-90;
-
-        transform.Rotate(0, 0, Angle);
     }
+    
 
 
 }
