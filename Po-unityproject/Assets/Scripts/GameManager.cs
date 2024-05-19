@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Transform baseObject;
-    public Transform shipObject;
+    public Transform redBaseObject;
+    public Transform blueBaseObject;
     void Start()
     {
-        Instantiate(shipObject).name = "Ship";
-        Instantiate(baseObject).name = "RedBase";
+        Instantiate(redBaseObject).name = "RedBase";
+        //Instantiate(blueBaseObject).name = "BlueBase";
     }
-
 }

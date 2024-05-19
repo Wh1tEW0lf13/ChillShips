@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff6eedc771f1f548b44fb7b57030896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseObject: {fileID: 1688525318772619016, guid: c97baba4edfc76041a502df544bd8a40, type: 3}
-  shipObject: {fileID: 772071179630122488, guid: f011a107ad3f18e478f8686ee5adf28d, type: 3}
+  redBaseObject: {fileID: 1688525318772619016, guid: c97baba4edfc76041a502df544bd8a40, type: 3}
+  blueBaseObject: {fileID: 1688525318772619016, guid: 3e005111d446c5d4db4161fcbd20f9ba, type: 3}
 --- !u!4 &771890336
 Transform:
   m_ObjectHideFlags: 0
