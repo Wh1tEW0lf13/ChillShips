@@ -9,7 +9,7 @@ public class ShipScript : MonoBehaviour
     public int tytanCapacity = 0;
     public int ironCapacity = 0;
     public int Capacity = 10;
-    public bool isFull = false;
+    public bool isComingBack = false;
 
     private void Start()
     {
@@ -24,9 +24,8 @@ public class ShipScript : MonoBehaviour
     }
     void Update()
     {  
-            transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
+        if(isComingBack)
+        transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
     }
     
-
-
 }

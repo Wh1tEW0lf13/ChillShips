@@ -27,10 +27,13 @@ public class BaseScript : MonoBehaviour
         if (ship.CompareTag(tag))
         {
             shipCapacity = ship.GetComponent<ShipScript>();
+            if(shipCapacity.isComingBack)
+            {
+                GetResources();
+                stackShip++;
+                Destroy(ship.gameObject);
+            }
             
-            GetResources();   
-            stackShip++;
-            Destroy(ship.gameObject);
         }
         else
         {
@@ -56,7 +59,7 @@ public class BaseScript : MonoBehaviour
             {
                 Instantiate(redShipObject).name = tag + "Ship" + numbers;
                 numbers++;
-                timeShipSpawn = 5f;
+                timeShipSpawn = 0.5f;
             }
             else if (CompareTag("Blue"))
             {
