@@ -10,6 +10,7 @@ public class ShipScript : MonoBehaviour
     public int ironCapacity = 0;
     public int Capacity = 10;
     public bool isComingBack = false;
+    public Vector2 followPosition;
 
     private void Start()
     {
@@ -21,11 +22,18 @@ public class ShipScript : MonoBehaviour
         {
             basePos = GameObject.Find("RedBase");
         }
+        followPosition = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
+        Debug.Log(followPosition);
     }
     void Update()
     {  
         if(isComingBack)
-        transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
+        else
+            transform.position = Vector2.MoveTowards(transform.position, followPosition, shipSpeed * Time.deltaTime);
+        if (transform.position.x == followPosition.x && transform.position.y == followPosition.y)
+            isComingBack = true;
     }
+    
     
 }

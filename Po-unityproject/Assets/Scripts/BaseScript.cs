@@ -32,8 +32,7 @@ public class BaseScript : MonoBehaviour
                 GetResources();
                 stackShip++;
                 Destroy(ship.gameObject);
-            }
-            
+            }           
         }
         else
         {
@@ -43,7 +42,6 @@ public class BaseScript : MonoBehaviour
         }
             
     }
-
     void GetResources()
     {
         iron += shipCapacity.ironCapacity;
@@ -59,7 +57,7 @@ public class BaseScript : MonoBehaviour
             {
                 Instantiate(redShipObject).name = tag + "Ship" + numbers;
                 numbers++;
-                timeShipSpawn = 0.5f;
+                timeShipSpawn = 5f;
             }
             else if (CompareTag("Blue"))
             {

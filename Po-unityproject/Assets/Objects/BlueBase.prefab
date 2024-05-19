@@ -50,7 +50,7 @@ MonoBehaviour:
   iron: 0
   tytan: 0
   stackShip: 5
-  timeShipSpawn: 0
+  timeShipSpawn: 5
   redShipObject: {fileID: 7189286514952578346, guid: f011a107ad3f18e478f8686ee5adf28d, type: 3}
   blueShipObject: {fileID: 7189286514952578346, guid: 470c4d15762cc224f9c53a813e71b7bc, type: 3}
 --- !u!70 &658300966525601663
