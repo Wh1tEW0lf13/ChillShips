@@ -178,11 +178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePos: {fileID: 3194638488564658625, guid: c97baba4edfc76041a502df544bd8a40, type: 3}
-  shipSpeed: 3
+  shipSpeed: 10
   tytanCapacity: 0
   ironCapacity: 0
   Capacity: 10
   isComingBack: 0
+  followPosition: {x: 0, y: 0}
 --- !u!50 &5806585295994409773
 Rigidbody2D:
   serializedVersion: 4

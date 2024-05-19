@@ -55,13 +55,13 @@ public class BaseScript : MonoBehaviour
             stackShip--;
             if (CompareTag("Red"))
             {
-                Instantiate(redShipObject).name = tag + "Ship" + numbers;
+                Instantiate(redShipObject,transform.position,transform.rotation, redShipObject.transform).name = tag + "Ship" + numbers;
                 numbers++;
                 timeShipSpawn = 5f;
             }
             else if (CompareTag("Blue"))
             {
-                Instantiate(blueShipObject).name = tag + "Ship" + numbers;
+                Instantiate(blueShipObject, transform.position, transform.rotation, blueShipObject.transform).name = tag + "Ship" + numbers;
                 numbers++;
                 timeShipSpawn = 5f;
             }
