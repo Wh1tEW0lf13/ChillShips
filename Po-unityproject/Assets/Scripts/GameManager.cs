@@ -17,8 +17,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         placement = new Vector3(Random.Range(-101, 101), Random.Range(-101, 101));
         spin = new Quaternion(0,0,0,0);
-        Instantiate(redBaseObject,placement , spin , redBaseObject.transform).name = "RedBase";
+        Instantiate(redBaseObject,placement , spin).name = "RedBase";
         placement = new Vector3(Random.Range(-101, 101), Random.Range(-101, 101));
-        Instantiate(blueBaseObject, placement, spin, redBaseObject.transform).name = "BlueBase";
+        Instantiate(blueBaseObject, placement, spin).name = "BlueBase";
     }
 }

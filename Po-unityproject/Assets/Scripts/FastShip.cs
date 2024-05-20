@@ -16,7 +16,7 @@ public class FastShip : ShipScript
         //UPDATE: zmieniłem inspektorze, ale ostatecznie jakos przy spalnie sie to bedzie pewnie ustawiac
         // a tego troche nie kumam xDD
 
-        setBasePosition();
+        //setBasePosition();
 
         FindNearestAsteroid();
         followPosition = nearestAsteroid;
