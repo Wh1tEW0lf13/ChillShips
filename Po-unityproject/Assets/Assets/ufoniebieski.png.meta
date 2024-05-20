@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ufoniebieski_0: 2451404323675408083
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

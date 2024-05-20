@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ufoczerwony_0: -6145634721494887260
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
