@@ -27,6 +27,11 @@ public class ShipScript : MonoBehaviour
     }
     void Update()
     {  
+        Move();
+    }
+
+
+    public void Move(){
         if(isComingBack)
             transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
         else
