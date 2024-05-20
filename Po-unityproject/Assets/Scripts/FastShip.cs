@@ -13,6 +13,11 @@ public class FastShip : ShipScript
     void Start()
     {
         //shipSpeed - chcaiłbym tu zmienić wartość speed, ale w kalsie nadrzednej: [SerializeField] private float shipSpeed=3f;
+        //UPDATE: zmieniłem inspektorze, ale ostatecznie jakos przy spalnie sie to bedzie pewnie ustawiac
+        // a tego troche nie kumam xDD
+
+        setBasePosition();
+
         FindNearestAsteroid();
         followPosition = nearestAsteroid;
     }

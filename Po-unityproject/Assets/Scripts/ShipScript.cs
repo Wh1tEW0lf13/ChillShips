@@ -14,14 +14,7 @@ public class ShipScript : MonoBehaviour
 
     private void Start()
     {
-        if (CompareTag("Blue"))
-        {
-            basePos = GameObject.Find("BlueBase");
-        }
-        else if (CompareTag("Red"))
-        {
-            basePos = GameObject.Find("RedBase");
-        }
+        setBasePosition();
         followPosition = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
         Debug.Log(followPosition);
     }
@@ -38,6 +31,17 @@ public class ShipScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, followPosition, shipSpeed * Time.deltaTime);
         if (transform.position.x == followPosition.x && transform.position.y == followPosition.y)
             isComingBack = true;
+    }
+
+    public void setBasePosition(){
+        if (CompareTag("Blue"))
+        {
+            basePos = GameObject.Find("BlueBase");
+        }
+        else if (CompareTag("Red"))
+        {
+            basePos = GameObject.Find("RedBase");
+        }
     }
     
     
