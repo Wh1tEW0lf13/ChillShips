@@ -25,6 +25,7 @@ public class FastShip : ShipScript
     }
 
     void FindNearestAsteroid(){
+        //Póki co działa na kady obiekt z tagiem, potem mozna to zmienic na wynajdywanie obiektow, albo tworzyc asteroidy juz z tagiem
         AllAsteroids = GameObject.FindGameObjectsWithTag("asteroid");
 
         for(int i = 0; i < AllAsteroids.Length; i++){
