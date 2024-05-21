@@ -14,7 +14,7 @@ public class ShipScript : MonoBehaviour
 
     private void Start()
     {
-        setBasePosition();
+        SetBasePosition();
         followPosition = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
         Debug.Log(followPosition);
     }
@@ -33,7 +33,7 @@ public class ShipScript : MonoBehaviour
             isComingBack = true;
     }
 
-    public void setBasePosition(){
+    public void SetBasePosition(){
         if (CompareTag("Blue"))
         {
             basePos = GameObject.Find("BlueBase");
