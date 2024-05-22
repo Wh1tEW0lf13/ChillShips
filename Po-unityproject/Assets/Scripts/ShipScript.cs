@@ -12,15 +12,16 @@ public class ShipScript : MonoBehaviour
     private int x, y;
     public bool isComingBack = false;
     public Vector2 followPosition;
-    GameManager gameManager;
+    public GameManager gameManager;
     public Transform world;
 
     private void Start()
     {
         SetBasePosition();
         gameManager = world.GetComponent<GameManager>();
-        followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn)); 
-        // Trzeba póŸniej zrobiæ, ¿eby nie losowa³ koordynatów za blisko bazy.
+        //Poni¿szy warunek nie daje mo¿liwoœci wylosowania koordynatów za blisko bazy
+        while (followPosition.x > basePos.transform.position.x - 5 && followPosition.x < basePos.transform.position.x + 5 || followPosition.y > basePos.transform.position.y - 5 && followPosition.y < basePos.transform.position.y + 5)
+            SetFollowPosition();
     }
     void Update()
     {  
@@ -47,6 +48,9 @@ public class ShipScript : MonoBehaviour
             basePos = GameObject.Find("RedBase");
         }
     }
-    
+    public void SetFollowPosition()
+    {
+        followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn));
+    }
     
 }

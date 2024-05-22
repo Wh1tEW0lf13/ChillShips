@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8055689851415454456}
   - component: {fileID: 1912824978443281150}
   - component: {fileID: 1590946533606101997}
+  - component: {fileID: 8898374857276462839}
   m_Layer: 0
   m_Name: BlueBase
   m_TagString: Blue
@@ -104,3 +105,40 @@ MonoBehaviour:
   timeShipSpawn: 0
   redShipObject: {fileID: 309508196860679861, guid: f011a107ad3f18e478f8686ee5adf28d, type: 3}
   blueShipObject: {fileID: 4873954844900862645, guid: 470c4d15762cc224f9c53a813e71b7bc, type: 3}
+--- !u!70 &8898374857276462839
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8635764618000631551}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.022558212, y: -0.08813381}
+  m_Size: {x: 1.8650821, y: 1.8650821}
+  m_Direction: 0
