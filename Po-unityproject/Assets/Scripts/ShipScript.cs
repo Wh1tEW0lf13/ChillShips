@@ -9,14 +9,18 @@ public class ShipScript : MonoBehaviour
     public int tytanCapacity = 0;
     public int ironCapacity = 0;
     public int Capacity = 10;
+    private int x, y;
     public bool isComingBack = false;
     public Vector2 followPosition;
+    GameManager gameManager;
+    public Transform world;
 
     private void Start()
     {
         SetBasePosition();
-        followPosition = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
-        Debug.Log(followPosition);
+        gameManager = world.GetComponent<GameManager>();
+        followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn)); 
+        // Trzeba póŸniej zrobiæ, ¿eby nie losowa³ koordynatów za blisko bazy.
     }
     void Update()
     {  
