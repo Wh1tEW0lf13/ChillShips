@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8055689851415454456}
-  - component: {fileID: 1912824978443281150}
   - component: {fileID: 1590946533606101997}
+  - component: {fileID: 1912824978443281150}
   - component: {fileID: 8898374857276462839}
   m_Layer: 0
   m_Name: BlueBase
@@ -34,6 +34,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1590946533606101997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8635764618000631551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1fddee59988e2448b0bb596705cc0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  iron: 0
+  tytan: 0
+  stackShip: 5
+  timeShipSpawn: 0
+  redShipObject: {fileID: 309508196860679861, guid: f011a107ad3f18e478f8686ee5adf28d, type: 3}
+  blueShipObject: {fileID: 4873954844900862645, guid: 470c4d15762cc224f9c53a813e71b7bc, type: 3}
 --- !u!212 &1912824978443281150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,25 +105,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1590946533606101997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8635764618000631551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1fddee59988e2448b0bb596705cc0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
-  iron: 0
-  tytan: 0
-  stackShip: 5
-  timeShipSpawn: 0
-  redShipObject: {fileID: 309508196860679861, guid: f011a107ad3f18e478f8686ee5adf28d, type: 3}
-  blueShipObject: {fileID: 4873954844900862645, guid: 470c4d15762cc224f9c53a813e71b7bc, type: 3}
 --- !u!70 &8898374857276462839
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

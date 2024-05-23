@@ -5,11 +5,11 @@ using UnityEngine;
 public class ShipScript : MonoBehaviour
 {
     public GameObject basePos;
-    [SerializeField] private float shipSpeed=3f;
+    public float shipSpeed;
     public int tytanCapacity = 0;
     public int ironCapacity = 0;
     public int Capacity = 10;
-    private int x, y;
+    public float x, y;
     public bool isComingBack = false;
     public Vector2 followPosition;
     public GameManager gameManager;
@@ -22,6 +22,7 @@ public class ShipScript : MonoBehaviour
         //Poni¿szy warunek nie daje mo¿liwoœci wylosowania koordynatów za blisko bazy
         while (followPosition.x > basePos.transform.position.x - 5 && followPosition.x < basePos.transform.position.x + 5 || followPosition.y > basePos.transform.position.y - 5 && followPosition.y < basePos.transform.position.y + 5)
             SetFollowPosition();
+        
     }
     void Update()
     {  
@@ -34,7 +35,7 @@ public class ShipScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
         else
             transform.position = Vector2.MoveTowards(transform.position, followPosition, shipSpeed * Time.deltaTime);
-        if (transform.position.x == followPosition.x && transform.position.y == followPosition.y)
+        if (transform.position.x == x && transform.position.y == y)
             isComingBack = true;
     }
 

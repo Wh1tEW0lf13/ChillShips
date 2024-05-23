@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 6755135591027782693, guid: a7366b78111e06e4ba3336be549ba33e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7416709445185072849, guid: a7366b78111e06e4ba3336be549ba33e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -64,8 +68,7 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6755135591027782693, guid: a7366b78111e06e4ba3336be549ba33e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

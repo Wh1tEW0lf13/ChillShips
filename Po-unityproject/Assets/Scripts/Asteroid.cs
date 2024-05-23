@@ -6,6 +6,8 @@ public class Asteroid : MonoBehaviour
 {
     public int ironCapacity = 0;
     public int tytanCapacity = 0;
+    public bool isEmpty;
+    public bool isMining = false;
     GameManager gameManager;
     public Transform world;
     void Start()
@@ -16,7 +18,6 @@ public class Asteroid : MonoBehaviour
     }
     private void ResetPosition()
     {
-
         transform.position = new Vector3(Random.Range(-gameManager.xSpawn, gameManager.xSpawn),Random.Range(-gameManager.ySpawn,gameManager.ySpawn));
         AsteroidCapacity();
     }
@@ -31,5 +32,15 @@ public class Asteroid : MonoBehaviour
                 ironCapacity = Random.Range(5, 21);
                 break;
         }
+    }
+    private void Update()
+    {
+        if (tytanCapacity + ironCapacity <= 0)
+        {
+            isEmpty = true;
+            ResetPosition();
+        }
+        else
+            isEmpty = false;
     }
 }

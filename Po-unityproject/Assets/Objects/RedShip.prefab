@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4156920238678605748}
+  - component: {fileID: -1459336340164464603}
   - component: {fileID: 1315743775937154941}
   - component: {fileID: 3023270332364197140}
   - component: {fileID: 4424918211271096424}
-  - component: {fileID: -1459336340164464603}
   m_Layer: 0
   m_Name: RedShip
   m_TagString: Red
@@ -35,6 +35,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1459336340164464603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309508196860679861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac02da1784a4456b688fdda02a45b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePos: {fileID: 0}
+  shipSpeed: 10
+  tytanCapacity: 0
+  ironCapacity: 0
+  Capacity: 10
+  x: 0
+  y: 0
+  isComingBack: 0
+  followPosition: {x: 0, y: 0}
+  gameManager: {fileID: 0}
+  world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+  miningTime: 1
+  isMining: 0
 --- !u!212 &1315743775937154941
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -160,24 +185,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-1459336340164464603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309508196860679861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ac02da1784a4456b688fdda02a45b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basePos: {fileID: 0}
-  shipSpeed: 3
-  tytanCapacity: 0
-  ironCapacity: 0
-  Capacity: 10
-  isComingBack: 0
-  followPosition: {x: 0, y: 0}
-  gameManager: {fileID: 0}
-  world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}

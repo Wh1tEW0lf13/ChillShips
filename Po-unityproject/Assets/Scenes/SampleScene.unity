@@ -241,7 +241,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4174355150092753174, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
       propertyPath: xSpawn
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174355150092753174, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+      propertyPath: ySpawn
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174355150092753174, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+      propertyPath: asteroidQuantity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
       propertyPath: m_LocalPosition.x

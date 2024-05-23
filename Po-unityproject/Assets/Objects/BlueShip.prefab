@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1906297936902723140}
-  - component: {fileID: 8681565585550498271}
   - component: {fileID: 3442202313144400057}
+  - component: {fileID: 8681565585550498271}
   - component: {fileID: 7695795211791413865}
   - component: {fileID: 3708795754815068234}
   m_Layer: 0
@@ -35,6 +35,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3442202313144400057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4873954844900862645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac02da1784a4456b688fdda02a45b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePos: {fileID: 0}
+  shipSpeed: 10
+  tytanCapacity: 0
+  ironCapacity: 0
+  Capacity: 10
+  x: 0
+  y: 0
+  isComingBack: 0
+  followPosition: {x: 0, y: 0}
+  gameManager: {fileID: 0}
+  world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+  miningTime: 1
+  isMining: 0
 --- !u!212 &8681565585550498271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,27 +112,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3442202313144400057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4873954844900862645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ac02da1784a4456b688fdda02a45b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basePos: {fileID: 0}
-  shipSpeed: 3
-  tytanCapacity: 0
-  ironCapacity: 0
-  Capacity: 10
-  isComingBack: 0
-  followPosition: {x: 0, y: 0}
-  gameManager: {fileID: 0}
-  world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
 --- !u!61 &7695795211791413865
 BoxCollider2D:
   m_ObjectHideFlags: 0
