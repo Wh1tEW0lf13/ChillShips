@@ -21,26 +21,27 @@ public class BaseScript : MonoBehaviour
             ShipSpawner();
         }
     }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag(tag))
+        if(col.gameObject.layer == 6)
         {
-            shipCapacity = col.GetComponent<ShipScript>();
-            if(shipCapacity.isComingBack)
+            if (col.CompareTag(tag))
             {
-                GetResources();
-                stackShip++;
+                shipCapacity = col.GetComponent<ShipScript>();
+                if (shipCapacity.isComingBack)
+                {
+                    GetResources();
+                    stackShip++;
+                    Destroy(col.gameObject);
+                }
+            }
+            else
+            {
+                iron += shipCapacity.ironCapacity / 2;
+                tytan += shipCapacity.tytanCapacity / 2;
                 Destroy(col.gameObject);
-            }           
-        }
-        else
-        {
-            iron += shipCapacity.ironCapacity/2;
-            tytan += shipCapacity.tytanCapacity/2;
-            Destroy(col.gameObject);
-        }
-            
+            }
+        }    
     }
     void GetResources()
     {

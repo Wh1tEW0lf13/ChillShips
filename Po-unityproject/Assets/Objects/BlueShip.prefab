@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8681565585550498271}
   - component: {fileID: 7695795211791413865}
   - component: {fileID: 3708795754815068234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueShip
   m_TagString: Blue
   m_Icon: {fileID: 0}
@@ -58,6 +58,7 @@ MonoBehaviour:
   followPosition: {x: 0, y: 0}
   gameManager: {fileID: 0}
   world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+  asteroid: {fileID: 0}
   miningTime: 1
   isMining: 0
 --- !u!212 &8681565585550498271

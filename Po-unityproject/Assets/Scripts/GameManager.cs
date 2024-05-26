@@ -13,18 +13,19 @@ public class GameManager : MonoBehaviour
     [Header("World Size")]
     public int xSpawn;
     public int ySpawn;
+    Vector3 cos;
     
     void Start()
     {
         BaseCreator();
         AsteroidCreator();
+        spin = new Quaternion(0, 0, 0, 0);
     }
 
     void BaseCreator()
-    { 
-        spin = new Quaternion(0,0,0,0);
-        Instantiate(redBaseObject, Placement() , spin).name = "RedBase";
-        Instantiate(blueBaseObject, Placement(), spin).name = "BlueBase";
+    {  
+        Instantiate(redBaseObject, Placement(1,0) , spin).name = "RedBase";
+        Instantiate(blueBaseObject, Placement(0,1), spin).name = "BlueBase";
     }
     void AsteroidCreator()
     {
@@ -33,7 +34,11 @@ public class GameManager : MonoBehaviour
         for(int i = 0; i < asteroidQuantity/5; i++)
         Instantiate(TrapAsteroid, Placement(), spin).name = "TrapAsteroid" + i;
     }
-    Vector3 Placement()
+    Vector3 Placement(int red, int blue)
+    {
+        return new Vector3(Random.Range(-xSpawn*red, xSpawn*blue), Random.Range(-ySpawn, ySpawn));
+    }
+    public Vector3 Placement()
     {
         return new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));
     }

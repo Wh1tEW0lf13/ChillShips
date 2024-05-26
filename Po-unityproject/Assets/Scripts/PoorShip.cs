@@ -58,5 +58,6 @@ public class PoorShip : ShipScript
             asteroid.ironCapacity--;
             miningTime = 1f;
         }
+
     }
 }
