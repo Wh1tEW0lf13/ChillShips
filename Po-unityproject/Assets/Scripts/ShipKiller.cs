@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class ShipKiller : ShipScript
 {
-    [SerializeField] private GameObject followedShip;
-    [SerializeField]private bool isFollowing = false;
+    [SerializeField] public GameObject followedShip;
+    [SerializeField] public bool isFollowing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,7 @@ public class ShipKiller : ShipScript
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Blue")){
-                followedShip = collision.gameObject;
-                isFollowing = true;
+                print("destroy");
             }
     }
 

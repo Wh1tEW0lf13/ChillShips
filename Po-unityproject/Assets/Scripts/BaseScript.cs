@@ -34,7 +34,7 @@ public class BaseScript : MonoBehaviour
                 Destroy(col.gameObject);
             }           
         }
-        else
+        else if(col.tag != "Neutral")
         {
             iron += shipCapacity.ironCapacity/2;
             tytan += shipCapacity.tytanCapacity/2;
