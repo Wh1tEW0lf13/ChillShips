@@ -19,7 +19,7 @@ public class ShipScript : MonoBehaviour
     {
         SetBasePosition();
         gameManager = world.GetComponent<GameManager>();
-        //Poni¿szy warunek nie daje mo¿liwoœci wylosowania koordynatów za blisko bazy
+        //Poniï¿½szy warunek nie daje moï¿½liwoï¿½ci wylosowania koordynatï¿½w za blisko bazy
         while (followPosition.x > basePos.transform.position.x - 5 && followPosition.x < basePos.transform.position.x + 5 || followPosition.y > basePos.transform.position.y - 5 && followPosition.y < basePos.transform.position.y + 5)
             SetFollowPosition();
         
