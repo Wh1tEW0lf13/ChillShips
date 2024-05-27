@@ -22,6 +22,7 @@ public class Asteroid : MonoBehaviour
     }
     public void ResetPosition()
     {
+        timeToMove = 2f;
         transform.position = new Vector3(Random.Range(-xSpawn, xSpawn),Random.Range(-ySpawn, ySpawn));
         AsteroidCapacity();
     }
@@ -52,8 +53,7 @@ public class Asteroid : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == 0 && timeToMove > 0)
-        {
-            timeToMove = 2f;
+        { 
             ResetPosition(); 
         }
     }

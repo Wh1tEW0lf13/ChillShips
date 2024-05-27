@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FastShip : ShipScript
+public class FastShip : PoorShip
 {
     private Vector2 nearestAsteroid;
     public GameObject[] AllAsteroids;

@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d710427a57ffb645b39c83c6fbaf6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 25
+  panSpeed: 50
   scrollSpeed: 5000
 --- !u!1001 &723508200503269971
 PrefabInstance:
@@ -241,15 +241,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4174355150092753174, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
       propertyPath: xSpawn
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4174355150092753174, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
       propertyPath: ySpawn
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4174355150092753174, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
       propertyPath: asteroidQuantity
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
       propertyPath: m_LocalPosition.x
