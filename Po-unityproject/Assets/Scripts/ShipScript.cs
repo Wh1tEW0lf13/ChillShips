@@ -19,10 +19,6 @@ public class ShipScript : MonoBehaviour
     {
         SetBasePosition();
         gameManager = world.GetComponent<GameManager>();
-        //Poni�szy warunek nie daje mo�liwo�ci wylosowania koordynat�w za blisko bazy
-        while (followPosition.x > basePos.transform.position.x - 5 && followPosition.x < basePos.transform.position.x + 5 || followPosition.y > basePos.transform.position.y - 5 && followPosition.y < basePos.transform.position.y + 5)
-            SetFollowPosition();
-        
     }
     void Update()
     {  
@@ -52,6 +48,7 @@ public class ShipScript : MonoBehaviour
     public void SetFollowPosition()
     {
         followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn));
+        Debug.Log(gameManager.xSpawn + " " + gameManager.ySpawn);
     }
     
 }

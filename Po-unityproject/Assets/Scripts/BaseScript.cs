@@ -41,7 +41,28 @@ public class BaseScript : MonoBehaviour
                 tytan += shipCapacity.tytanCapacity / 2;
                 Destroy(col.gameObject);
             }
-        }    
+        }
+        if (iron >= 250)
+        {
+            stackShip++;
+            iron -= 250;
+        }
+        if (level == 1 && tytan >= 1000)
+        {
+            level = 2;
+            tytan -= 1000;
+        }
+        else if(level == 2 && tytan >= 2000)
+        {
+            level = 3;
+            tytan -= 2000;
+        }
+        else if(level == 3 && tytan >= 3000)
+        {
+            level = 4;
+            tytan -= 3000;
+        }
+            
     }
     void GetResources()
     {

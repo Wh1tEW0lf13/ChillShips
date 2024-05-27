@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     void BaseCreator()
     {  
         Instantiate(redBaseObject, Placement(1,0) , spin).name = "RedBase";
-        Instantiate(blueBaseObject, Placement(0,1), spin).name = "BlueBase";
+        //Instantiate(blueBaseObject, Placement(0,1), spin).name = "BlueBase";
     }
     void AsteroidCreator()
     {
