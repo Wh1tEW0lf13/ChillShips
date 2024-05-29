@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShipKiller : ShipScript
 {
     [SerializeField] public GameObject followedShip;
+    GameObject child;
     [SerializeField] public bool isFollowing = false;
 
     // Start is called before the first frame update
@@ -18,6 +19,8 @@ public class ShipKiller : ShipScript
         SetFollowPosition();
         x = followPosition.x;
         y = followPosition.y;
+
+        child = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class ShipKiller : ShipScript
         else{
             Move();
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -37,8 +41,19 @@ public class ShipKiller : ShipScript
                 Destroy(collision.gameObject);
             }
     }
-
-/*    void OnTriggerEnter2D(Collider2D collision){
+    
+    /*
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Blue")){
+                print("detect");
+                followPosition = collision.transform.position;
+                followedShip = collision.gameObject;
+                isFollowing = true;
+            }
+    }
+    
+  void OnTriggerEnter2D(Collider2D collision){
         
         if (collision.GetComponent<CircleCollider2D>().GetType() == typeof(CircleCollider2D))
         {
@@ -60,5 +75,9 @@ public class ShipKiller : ShipScript
 */
     void Follow(){
         transform.position = Vector2.MoveTowards(transform.position, followedShip.transform.position, shipSpeed * Time.deltaTime);
+    }
+
+    public void Detect(){
+        isFollowing = true;
     }
 }
