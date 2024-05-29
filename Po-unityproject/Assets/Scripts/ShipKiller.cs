@@ -23,25 +23,19 @@ public class ShipKiller : ShipScript
     // Update is called once per frame
     void Update()
     {
-        if(isFollowing){
+        if(isFollowing && followedShip != null){
             Follow();
         }
         else{
             Move();
         }
-        
-        if(followedShip == null){isFollowing = false;}
     }
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Blue")){
                 print("destroy");
+                Destroy(collision.gameObject);
             }
-    }
-
-    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
-    {
-        print("destroy");
     }
 
 /*    void OnTriggerEnter2D(Collider2D collision){

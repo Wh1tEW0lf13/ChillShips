@@ -20,8 +20,10 @@ public class childShipKiller : ShipKiller
     {
         if(collision.gameObject.CompareTag("Blue")){
                 print("detect");
+                followPosition = collision.transform.position;
                 followedShip = collision.gameObject;
                 isFollowing = true;
+                Vector2.MoveTowards(transform.position, followedShip.transform.position, shipSpeed * Time.deltaTime);
             }
     }
 }
