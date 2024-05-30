@@ -51,7 +51,8 @@ MonoBehaviour:
   tytanCapacity: 0
   isEmpty: 0
   isMining: 0
-  world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+  timeToMove: 2
+  world: {fileID: 0}
 --- !u!212 &7462160408036846758
 SpriteRenderer:
   m_ObjectHideFlags: 0

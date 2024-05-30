@@ -11,6 +11,7 @@ public class ShipKiller : ShipScript
     // Start is called before the first frame update
     void Start()
     {
+        world = GameObject.Find("World");
         SetBasePosition();
         shipSpeed = 10f;
         gameManager = world.GetComponent<GameManager>();

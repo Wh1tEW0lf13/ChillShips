@@ -8,36 +8,17 @@ public class Asteroid : MonoBehaviour
     public int tytanCapacity = 0;
     public bool isEmpty;
     public bool isMining = false;
-    [Range(0,2f)]
-    public float timeToMove = 2f;
+    public float timeToMove;
     GameManager gameManager;
     int xSpawn, ySpawn;
-    public Transform world;
+    public GameObject world;
     void Start()
-    { 
+    {
+        world = GameObject.Find("World");
         gameManager = world.GetComponent<GameManager>();
         xSpawn = gameManager.xSpawn;
         ySpawn = gameManager.ySpawn;
         AsteroidCapacity();
-    }
-    public void ResetPosition()
-    {
-        timeToMove = 2f;
-        transform.position = new Vector3(Random.Range(-xSpawn, xSpawn),Random.Range(-ySpawn, ySpawn));
-        AsteroidCapacity();
-    }
-    private void AsteroidCapacity()
-    {
-        tytanCapacity = ironCapacity = 0;
-        switch (Random.Range(0, 2))
-        {
-            case <= 0:
-                tytanCapacity = Random.Range(5, 21);
-                break;
-            case >= 1:
-                ironCapacity = Random.Range(5, 21);
-                break;
-        }
     }
     private void Update()
     {
@@ -52,9 +33,28 @@ public class Asteroid : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 0 && timeToMove > 0)
+        if(timeToMove > 0)
         { 
             ResetPosition(); 
+        }
+    }
+    public void ResetPosition()
+    {
+        timeToMove = 5f;
+        transform.position = new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));
+        AsteroidCapacity();
+    }
+    private void AsteroidCapacity()
+    {
+        tytanCapacity = ironCapacity = 0;
+        switch (Random.Range(0, 2))
+        {
+            case <= 0:
+                tytanCapacity = Random.Range(5, 21);
+                break;
+            case >= 1:
+                ironCapacity = Random.Range(5, 21);
+                break;
         }
     }
 }

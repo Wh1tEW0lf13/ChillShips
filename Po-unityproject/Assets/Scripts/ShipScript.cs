@@ -13,7 +13,7 @@ public class ShipScript : MonoBehaviour
     public bool isComingBack = false;
     public Vector2 followPosition;
     public GameManager gameManager;
-    public Transform world;
+    public GameObject world;
 
     private void Start()
     {
@@ -23,6 +23,7 @@ public class ShipScript : MonoBehaviour
     void Update()
     {  
         Move();
+        
     }
 
 
@@ -47,8 +48,12 @@ public class ShipScript : MonoBehaviour
     }
     public void SetFollowPosition()
     {
-        followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn));
-        Debug.Log(gameManager.xSpawn + " " + gameManager.ySpawn);
+        followPosition = basePos.transform.position;
+        while(followPosition.x>basePos.transform.position.x-5&& followPosition.x < basePos.transform.position.x + 5 || followPosition.y > basePos.transform.position.y - 5 && followPosition.y < basePos.transform.position.y + 5)
+        {
+            Debug.Log("sie");
+            followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn));
+        }
     }
     
 }

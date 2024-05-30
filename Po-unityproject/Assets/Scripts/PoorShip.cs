@@ -9,6 +9,7 @@ public class PoorShip : ShipScript
     [SerializeField] private bool isMining;
     void Start()
     {
+        world = GameObject.Find("World");
         SetBasePosition();
         gameManager = world.GetComponent<GameManager>();
         SetFollowPosition();

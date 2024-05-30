@@ -6,11 +6,12 @@ public class TrapAsteroid : MonoBehaviour
 {
     GameManager gameManager;
     public AudioClip boom;
-    public Transform world;
+    private GameObject world;
     int xSpawn, ySpawn;
 
     private void Start()
     {
+        world = GameObject.Find("World");
         gameManager = world.GetComponent<GameManager>();
         xSpawn = gameManager.xSpawn;
         ySpawn = gameManager.ySpawn;

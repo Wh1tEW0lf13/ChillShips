@@ -99,4 +99,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boom: {fileID: 8300000, guid: 254d4998650e69a499c8d6513c80e09a, type: 3}
-  world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+  world: {fileID: 0}
