@@ -51,7 +51,7 @@ MonoBehaviour:
   tytan: 0
   stackShip: 5
   timeShipSpawn: 5
-  redShipObject: {fileID: 158180611845602932, guid: b493d37a07ceb4165b0aac2ed94b4c81, type: 3}
+  redShipObject: {fileID: 956417588674107650, guid: 00045cb3189114dbb9e6c44f111442ed, type: 3}
   blueShipObject: {fileID: 4873954844900862645, guid: 470c4d15762cc224f9c53a813e71b7bc, type: 3}
 --- !u!212 &3888961496769532508
 SpriteRenderer:

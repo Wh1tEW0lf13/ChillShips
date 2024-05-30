@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FastShip : ShipScript
+public class FastShip : PoorShip
 {
     private Vector2 nearestAsteroid;
     public GameObject[] AllAsteroids;
@@ -12,19 +12,21 @@ public class FastShip : ShipScript
     // Start is called before the first frame update
     void Start()
     {
-        //shipSpeed - chcaiłbym tu zmienić wartość speed, ale w kalsie nadrzednej: [SerializeField] private float shipSpeed=3f;
-        //UPDATE: zmieniłem inspektorze, ale ostatecznie jakos przy spalnie sie to bedzie pewnie ustawiac
-        // a tego troche nie kumam xDD
         SetBasePosition();
+        gameManager = world.GetComponent<GameManager>();
         FindNearestAsteroid();
         followPosition = nearestAsteroid;
+        x = followPosition.x;
+        y = followPosition.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        Move();
+        if (isMining&&!isComingBack)
+            IsMining();
+        if(!isMining)
+            Move();
     }
 
     void FindNearestAsteroid(){
@@ -32,11 +34,32 @@ public class FastShip : ShipScript
         AllAsteroids = GameObject.FindGameObjectsWithTag("asteroid");
 
         for(int i = 0; i < AllAsteroids.Length; i++){
-            distance = Vector2.Distance(this.transform.position, AllAsteroids[i].transform.position);
+            //sprawdza czy wybrana asteroida jest zajęta
+            if(!AllAsteroids[i].gameObject.GetComponent<Asteroid>().isMining)
+                distance = Vector2.Distance(this.transform.position, AllAsteroids[i].transform.position);
 
-            if(distance < nearestDistance){
-                nearestAsteroid = AllAsteroids[i].transform.position;
-                nearestDistance = distance;
+                if(distance < nearestDistance){
+                    nearestAsteroid = AllAsteroids[i].transform.position;
+                    nearestDistance = distance;
+            }
+        }
+        //daje zachowanie (przynajmiej auto powrot do bazy), gdy wszystkie asteroidy byly by zajete
+        if(nearestAsteroid == null){isComingBack = true;}
+    }
+
+    //przeniesione z poor ship z wyłączeniem lotu do asteroidy (Fast ship i tak sobie poradzi) bez tego nie zaczyna wydobywać
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.CompareTag("asteroid"))
+        {
+            asteroid = col.GetComponent<Asteroid>();
+            if (!isComingBack && !asteroid.isMining)
+            {
+                print("ast");
+                followPosition = col.transform.position;
+                Vector2.MoveTowards(transform.position, followPosition, shipSpeed * Time.deltaTime);
+                isMining = true;
+                asteroid.isMining = true;
             }
         }
     }

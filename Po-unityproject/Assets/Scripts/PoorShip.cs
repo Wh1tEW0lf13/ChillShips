@@ -6,7 +6,7 @@ public class PoorShip : ShipScript
 {
     public Asteroid asteroid;
     [SerializeField] private float miningTime = 1f;
-    [SerializeField] private bool isMining;
+    [SerializeField] public bool isMining;
     void Start()
     {
         SetBasePosition();
@@ -45,6 +45,7 @@ public class PoorShip : ShipScript
         {
             isComingBack = true;
             asteroid.isMining = false;
+            isMining = false;
         } 
         if(asteroid.tytanCapacity>0&&miningTime<0)
         {
