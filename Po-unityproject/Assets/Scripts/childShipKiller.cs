@@ -18,19 +18,10 @@ public class childShipKiller : ShipKiller
         
     }
 
-    /*
-    void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.CompareTag("Blue")){
-                print("destroy");
-                Destroy(collision.gameObject);
-            }
-    }
-    */
-    
-
+    //collider rozszerzony - spelnia fnkcje radaru i namierzania bliskich statkow
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Blue")){
+        if(collision.gameObject.CompareTag(transform.parent.GetComponent<ShipKiller>().enemyTag)){
                 print("detect");
                 transform.parent.GetComponent<ShipKiller>().followedShip = collision.gameObject;
                 transform.parent.GetComponent<ShipKiller>().isFollowing = true;
