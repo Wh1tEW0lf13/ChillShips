@@ -12,6 +12,7 @@ public class FastShip : PoorShip
     // Start is called before the first frame update
     void Start()
     {
+        world = GameObject.Find("World");
         SetBasePosition();
         gameManager = world.GetComponent<GameManager>();
         FindNearestAsteroid();

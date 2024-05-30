@@ -109,7 +109,7 @@ MonoBehaviour:
   isComingBack: 0
   followPosition: {x: 0, y: 0}
   gameManager: {fileID: 0}
-  world: {fileID: 4346630981352244930, guid: a3419af46ea1091409b3dccd9759b5c5, type: 3}
+  world: {fileID: 0}
   asteroid: {fileID: 0}
   miningTime: 1
   isMining: 0
