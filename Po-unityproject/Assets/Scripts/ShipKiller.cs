@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class ShipKiller : ShipScript
 {
-    [SerializeField] private GameObject followedShip;
-    [SerializeField]private bool isFollowing = false;
+
+    public string enemyTag;
+    [SerializeField] public GameObject followedShip;
+    [SerializeField] public bool isFollowing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,53 +21,35 @@ public class ShipKiller : ShipScript
         SetFollowPosition();
         x = followPosition.x;
         y = followPosition.y;
+        if(gameObject.tag == "Red"){enemyTag = "Blue";}
+        else{enemyTag = "Red";}
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isFollowing){
+        if(isFollowing && followedShip != null){
             Follow();
         }
         else{
             Move();
         }
         
-        if(followedShip == null){isFollowing = false;}
     }
 
+    //colider podstawowy - wielkosci sprita - sluzy do niszeczenia i bycia niszczonym
     void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.CompareTag("Blue")){
-                followedShip = collision.gameObject;
-                isFollowing = true;
+        if(collision.gameObject.CompareTag(enemyTag)){
+                print("destroy");
+                //warunek póki co nie pozwala zacząć przyjmowania surowców ponad górny limit, ale nie wyklucza ze zebrae za jedym podejsciem przekrocza ten limit
+                if(ironCapacity + tytanCapacity < Capacity){
+                    ironCapacity += collision.gameObject.GetComponent<ShipScript>().ironCapacity;
+                    tytanCapacity += collision.gameObject.GetComponent<ShipScript>().tytanCapacity;
+                }
+                Destroy(collision.gameObject);
             }
     }
 
-    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
-    {
-        print("destroy");
-    }
-
-/*    void OnTriggerEnter2D(Collider2D collision){
-        
-        if (collision.GetComponent<CircleCollider2D>().GetType() == typeof(CircleCollider2D))
-        {
-             if(collision.gameObject.CompareTag("Blue")){
-                followedShip = collision.gameObject;
-                isFollowing = true;
-            }
-        }    
-        
-        else if (collision.GetComponent<BoxCollider2D>().GetType() == typeof(BoxCollider2D)){
-            if(collision.gameObject.CompareTag("Blue")){
-            print("destroy");
-            isComingBack = true;
-            isFollowing = false;
-            }
-        }
-    }
-    
-*/
     void Follow(){
         transform.position = Vector2.MoveTowards(transform.position, followedShip.transform.position, shipSpeed * Time.deltaTime);
     }
