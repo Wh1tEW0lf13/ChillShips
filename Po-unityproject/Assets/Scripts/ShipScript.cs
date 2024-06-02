@@ -51,7 +51,6 @@ public class ShipScript : MonoBehaviour
         followPosition = basePos.transform.position;
         while(followPosition.x>basePos.transform.position.x-5&& followPosition.x < basePos.transform.position.x + 5 || followPosition.y > basePos.transform.position.y - 5 && followPosition.y < basePos.transform.position.y + 5)
         {
-            Debug.Log("sie");
             followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn));
         }
     }

@@ -17,7 +17,6 @@ public class PoorShip : ShipScript
         y = followPosition.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

@@ -22,6 +22,13 @@ public class GameManager : MonoBehaviour
         spin = new Quaternion(0, 0, 0, 0);
     }
 
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     void BaseCreator()
     {  
         Instantiate(redBaseObject, Placement(1,0) , spin).name = "RedBase";
