@@ -21,6 +21,8 @@ public class ShipKiller : ShipScript
         SetFollowPosition();
         x = followPosition.x;
         y = followPosition.y;
+
+        //ustawienie poszukiwanego tagu na przeciwnika
         if(gameObject.tag == "Red"){enemyTag = "Blue";}
         else{enemyTag = "Red";}
     }
