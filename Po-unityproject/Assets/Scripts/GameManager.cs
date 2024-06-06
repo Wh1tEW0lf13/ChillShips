@@ -13,13 +13,16 @@ public class GameManager : MonoBehaviour
     [Header("World Size")]
     public int xSpawn;
     public int ySpawn;
-    Vector3 cos;
+    [Header("EndGamePanel")]
+    [SerializeField] public Canvas bluePanel;
+    [SerializeField] public Canvas redPanel;
     
     void Start()
     {
         BaseCreator();
         AsteroidCreator();
         spin = new Quaternion(0, 0, 0, 0);
+
     }
 
     private void Update()
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
-        }
+        }      
     }
     void BaseCreator()
     {  
@@ -48,5 +51,28 @@ public class GameManager : MonoBehaviour
     public Vector3 Placement()
     {
         return new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));
+    }
+    public void loseCheck(string tag)
+    {
+        var numberOfObjects = GameObject.FindGameObjectsWithTag(tag).Length;
+        GameObject red = GameObject.Find("RedBase");
+        GameObject blue = GameObject.Find("BlueBase");
+        if(tag == "Red")
+        {
+            if (red.GetComponent<BaseScript>().stackShip + numberOfObjects <= 2)
+            {
+                bluePanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+        else if(tag == "Blue")
+        {
+            if (blue.GetComponent<BaseScript>().stackShip + numberOfObjects <= 2)
+            {
+                redPanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+
     }
 }

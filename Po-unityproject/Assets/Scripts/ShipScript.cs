@@ -14,6 +14,7 @@ public class ShipScript : MonoBehaviour
     public Vector2 followPosition;
     public GameManager gameManager;
     public GameObject world;
+    [SerializeField] private AudioClip boom;
 
     private void Start()
     {
@@ -22,8 +23,7 @@ public class ShipScript : MonoBehaviour
     }
     void Update()
     {  
-        Move();
-        
+        Move();  
     }
 
 
@@ -54,5 +54,10 @@ public class ShipScript : MonoBehaviour
             followPosition = new Vector2(Random.Range(-gameManager.xSpawn, gameManager.xSpawn), Random.Range(-gameManager.ySpawn, gameManager.ySpawn));
         }
     }
-    
+    public void ShipDestroyer(GameObject ship)
+    {
+            Destroy(ship.gameObject);
+            AudioSource.PlayClipAtPoint(boom, ship.transform.position);
+            gameManager.loseCheck(ship.tag);
+    }
 }

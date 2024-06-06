@@ -12,8 +12,13 @@ public class BaseScript : MonoBehaviour
     private int numbers = 0;
     public GameObject redShipObject;
     public GameObject blueShipObject;
-    ShipScript shipCapacity;
+    GameManager gameManager;
 
+    private void Start()
+    {
+        GameObject world = GameObject.Find("World");
+        gameManager = world.GetComponent<GameManager>();
+    }
     private void Update()
     {
         if(stackShip>0)
@@ -25,12 +30,13 @@ public class BaseScript : MonoBehaviour
     {
         if(col.gameObject.layer == 6)
         {
+            ShipScript shipCapacity = col.GetComponent<ShipScript>();
             if (col.CompareTag(tag))
             {
-                shipCapacity = col.GetComponent<ShipScript>();
                 if (shipCapacity.isComingBack)
                 {
-                    GetResources();
+                    iron += shipCapacity.ironCapacity / 2;
+                    tytan += shipCapacity.tytanCapacity / 2;
                     stackShip++;
                     Destroy(col.gameObject);
                 }
@@ -39,7 +45,9 @@ public class BaseScript : MonoBehaviour
             {
                 iron += shipCapacity.ironCapacity / 2;
                 tytan += shipCapacity.tytanCapacity / 2;
+                stackShip++;
                 Destroy(col.gameObject);
+                gameManager.loseCheck(col.gameObject.tag);
             }
         }
         if (iron >= 250)
@@ -61,13 +69,18 @@ public class BaseScript : MonoBehaviour
         {
             level = 4;
             tytan -= 3000;
+            if(CompareTag("Red"))
+            {
+                gameManager.redPanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else if(CompareTag("Blue"))
+            {
+                gameManager.bluePanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
             
-    }
-    void GetResources()
-    {
-        iron += shipCapacity.ironCapacity;
-        tytan += shipCapacity.tytanCapacity;
     }
     void ShipSpawner()
     {

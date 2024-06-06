@@ -25,6 +25,7 @@ public class TrapAsteroid : MonoBehaviour
             Destroy(collision.gameObject);
             ResetPosition();
             AudioSource.PlayClipAtPoint(boom, transform.position);
+            gameManager.loseCheck(collision.tag);
         }
         
     }

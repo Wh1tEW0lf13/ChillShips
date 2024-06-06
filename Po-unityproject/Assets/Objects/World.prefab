@@ -52,6 +52,8 @@ MonoBehaviour:
   asteroidQuantity: 5
   xSpawn: 15
   ySpawn: 50
+  bluePanel: {fileID: 1538390702463608523, guid: 6159b143d98a33a4f8e9130cc64be6e8, type: 3}
+  redPanel: {fileID: 1446208891881687651, guid: 8d935e2ec524e524bb49a1bc1be2750e, type: 3}
 --- !u!82 &4705053942956943388
 AudioSource:
   m_ObjectHideFlags: 0

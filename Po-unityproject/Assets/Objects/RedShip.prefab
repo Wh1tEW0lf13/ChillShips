@@ -58,6 +58,7 @@ MonoBehaviour:
   followPosition: {x: 0, y: 0}
   gameManager: {fileID: 0}
   world: {fileID: 0}
+  boom: {fileID: 8300000, guid: 254d4998650e69a499c8d6513c80e09a, type: 3}
   asteroid: {fileID: 0}
   miningTime: 1
   isMining: 0
