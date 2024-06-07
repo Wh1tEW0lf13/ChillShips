@@ -5,9 +5,9 @@ using UnityEngine;
 public class BaseScript : MonoBehaviour
 {
     private int level = 1;
-    private int iron = 0;
-    private int tytan = 0;
-    public int stackShip = 5;
+    [SerializeField] private int iron = 0;
+    [SerializeField] private int tytan = 0;
+    public int stackShip = 15;
     public float timeShipSpawn = 0f;
     private int numbers = 0;
     public GameObject redShipObject;
@@ -50,25 +50,25 @@ public class BaseScript : MonoBehaviour
                 gameManager.loseCheck(col.gameObject.tag);
             }
         }
-        if (iron >= 250)
+        if (iron >= 5)
         {
             stackShip++;
-            iron -= 250;
+            iron -= 5;
         }
-        if (level == 1 && tytan >= 1000)
+        if (level == 1 && tytan >= 25)
         {
             level = 2;
-            tytan -= 1000;
+            tytan -= 25;
         }
-        else if(level == 2 && tytan >= 2000)
+        else if(level == 2 && tytan >= 100)
         {
             level = 3;
-            tytan -= 2000;
+            tytan -= 100;
         }
-        else if(level == 3 && tytan >= 3000)
+        else if(level == 3 && tytan >= 500)
         {
             level = 4;
-            tytan -= 3000;
+            tytan -= 5000;
             if(CompareTag("Red"))
             {
                 gameManager.redPanel.gameObject.SetActive(true);
@@ -92,13 +92,13 @@ public class BaseScript : MonoBehaviour
             {
                 Instantiate(redShipObject,transform.position,transform.rotation).name = tag + "Ship" + numbers;
                 numbers++;
-                timeShipSpawn = 5f;
+                timeShipSpawn = 4f;
             }
             else if (CompareTag("Blue"))
             {
                 Instantiate(blueShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
                 numbers++;
-                timeShipSpawn = 5f;
+                timeShipSpawn = 4f;
             }
         }
     }

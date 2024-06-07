@@ -42,6 +42,7 @@ public class BigShip : PoorShip
 
     public new void IsMining()
     {
+        
         if(asteroid.ironCapacity + asteroid.tytanCapacity <= Capacity - ironCapacity - tytanCapacity)
         {
             ironCapacity += asteroid.ironCapacity;

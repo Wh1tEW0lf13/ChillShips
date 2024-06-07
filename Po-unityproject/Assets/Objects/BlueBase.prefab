@@ -46,10 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1fddee59988e2448b0bb596705cc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
   iron: 0
   tytan: 0
-  stackShip: 5
+  stackShip: 15
   timeShipSpawn: 5
   redShipObject: {fileID: 309508196860679861, guid: f011a107ad3f18e478f8686ee5adf28d, type: 3}
   blueShipObject: {fileID: 4873954844900862645, guid: 470c4d15762cc224f9c53a813e71b7bc, type: 3}

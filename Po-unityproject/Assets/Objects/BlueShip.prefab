@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,18 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePos: {fileID: 0}
-  shipSpeed: 10
+  shipSpeed: 30
   tytanCapacity: 0
   ironCapacity: 0
-  Capacity: 10
-  x: 0
-  y: 0
   isComingBack: 0
-  followPosition: {x: 0, y: 0}
-  gameManager: {fileID: 0}
-  world: {fileID: 0}
   boom: {fileID: 8300000, guid: 254d4998650e69a499c8d6513c80e09a, type: 3}
-  asteroid: {fileID: 0}
   miningTime: 1
   isMining: 0
 --- !u!212 &8681565585550498271
@@ -158,7 +151,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.88, y: 1.75}
+  m_Size: {x: 2.88, y: 1.9}
   m_EdgeRadius: 0
 --- !u!50 &3708795754815068234
 Rigidbody2D:

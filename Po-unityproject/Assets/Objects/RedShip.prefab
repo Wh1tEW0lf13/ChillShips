@@ -48,18 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePos: {fileID: 0}
-  shipSpeed: 10
+  shipSpeed: 30
   tytanCapacity: 0
   ironCapacity: 0
-  Capacity: 10
-  x: 0
-  y: 0
   isComingBack: 0
-  followPosition: {x: 0, y: 0}
-  gameManager: {fileID: 0}
-  world: {fileID: 0}
   boom: {fileID: 8300000, guid: 254d4998650e69a499c8d6513c80e09a, type: 3}
-  asteroid: {fileID: 0}
   miningTime: 1
   isMining: 0
 --- !u!212 &1315743775937154941
