@@ -29,7 +29,7 @@ public class TrapAsteroid : MonoBehaviour
         }
         
     }
-    public void ResetPosition()
+    private void ResetPosition()
     {
         transform.position = new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));
     }

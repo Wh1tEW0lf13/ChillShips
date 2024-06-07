@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BaseScript : MonoBehaviour
 {
-    public int level = 1;
-    public int iron = 0;
-    public int tytan = 0;
+    private int level = 1;
+    private int iron = 0;
+    private int tytan = 0;
     public int stackShip = 5;
     public float timeShipSpawn = 0f;
     private int numbers = 0;

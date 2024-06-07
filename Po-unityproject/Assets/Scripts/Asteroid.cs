@@ -8,10 +8,10 @@ public class Asteroid : MonoBehaviour
     public int tytanCapacity = 0;
     public bool isEmpty;
     public bool isMining = false;
-    public float timeToMove;
+    private float timeToMove;
     GameManager gameManager;
-    int xSpawn, ySpawn;
-    public GameObject world;
+    private int xSpawn, ySpawn;
+    private GameObject world;
     void Start()
     {
         world = GameObject.Find("World");
@@ -38,7 +38,7 @@ public class Asteroid : MonoBehaviour
             ResetPosition(); 
         }
     }
-    public void ResetPosition()
+    private void ResetPosition()
     {
         timeToMove = 5f;
         transform.position = new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));

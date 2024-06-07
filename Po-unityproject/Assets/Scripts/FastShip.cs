@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class FastShip : PoorShip
 {
     private Vector2 nearestAsteroid;
-    public GameObject[] AllAsteroids;
-    float distance;
-    float nearestDistance = 10000;
+    private GameObject[] AllAsteroids;
+    private float distance;
+    private float nearestDistance = 1000000000;
     
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class FastShip : PoorShip
             Move();
     }
 
-    void FindNearestAsteroid(){
+    private void FindNearestAsteroid(){
         //Póki co działa na kady obiekt z tagiem, potem mozna to zmienic na wynajdywanie obiektow, albo tworzyc asteroidy juz z tagiem
         AllAsteroids = GameObject.FindGameObjectsWithTag("asteroid");
 
@@ -38,7 +39,7 @@ public class FastShip : PoorShip
             //sprawdza czy wybrana asteroida jest zajęta
             if(!AllAsteroids[i].gameObject.GetComponent<Asteroid>().isMining)
                 distance = Vector2.Distance(this.transform.position, AllAsteroids[i].transform.position);
-
+                //znajdowanie najblizszej
                 if(distance < nearestDistance){
                     nearestAsteroid = AllAsteroids[i].transform.position;
                     nearestDistance = distance;
@@ -48,7 +49,7 @@ public class FastShip : PoorShip
         if(nearestAsteroid == null){isComingBack = true;}
     }
 
-    //przeniesione z poor ship z wyłączeniem lotu do asteroidy (Fast ship i tak sobie poradzi) bez tego nie zaczyna wydobywać
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("asteroid"))

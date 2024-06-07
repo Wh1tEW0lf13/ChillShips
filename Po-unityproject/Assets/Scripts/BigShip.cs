@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BigShip : PoorShip
 {
-    private float miningTime = 1f;
+    private new float miningTime = 2f;
     void Start()
     {
         world = GameObject.Find("World");

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PoorShip : ShipScript
 {
-    public Asteroid asteroid;
-    [SerializeField] private float miningTime = 1f;
-    [SerializeField] public bool isMining;
+    protected Asteroid asteroid;
+    [SerializeField] protected float miningTime = 1f;
+    public bool isMining;
     void Start()
     {
         world = GameObject.Find("World");

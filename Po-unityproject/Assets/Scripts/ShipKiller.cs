@@ -8,7 +8,7 @@ public class ShipKiller : ShipScript
 
     public string enemyTag;
     [SerializeField] public GameObject followedShip;
-    [SerializeField] public bool isFollowing = false;
+    public bool isFollowing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class ShipKiller : ShipScript
     }
 
     //colider podstawowy - wielkosci sprita - sluzy do niszeczenia i bycia niszczonym
-    void OnTriggerEnter2D(Collider2D collision){
+    private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag(enemyTag)){
                 print("destroy");
                 //warunek póki co nie pozwala zacząć przyjmowania surowców ponad górny limit, ale nie wyklucza ze zebrae za jedym podejsciem przekrocza ten limit
@@ -51,7 +51,7 @@ public class ShipKiller : ShipScript
             }
     }
 
-    void Follow(){
+    private void Follow(){
         transform.position = Vector2.MoveTowards(transform.position, followedShip.transform.position, shipSpeed * Time.deltaTime);
     }
 }
