@@ -50,8 +50,8 @@ MonoBehaviour:
   QuerryAstroid: {fileID: 7416709445185072849, guid: a7366b78111e06e4ba3336be549ba33e, type: 3}
   TrapAsteroid: {fileID: 2778500210445956454, guid: 0c712ab1a4d3cc940ba6dfc1a566b52a, type: 3}
   asteroidQuantity: 5
-  xSpawn: 15
-  ySpawn: 50
+  xSpawn: 200
+  ySpawn: 200
   bluePanel: {fileID: 1538390702463608523, guid: 6159b143d98a33a4f8e9130cc64be6e8, type: 3}
   redPanel: {fileID: 1446208891881687651, guid: 8d935e2ec524e524bb49a1bc1be2750e, type: 3}
 --- !u!82 &4705053942956943388

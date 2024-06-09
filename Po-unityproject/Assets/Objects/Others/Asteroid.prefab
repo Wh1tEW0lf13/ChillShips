@@ -51,8 +51,6 @@ MonoBehaviour:
   tytanCapacity: 0
   isEmpty: 0
   isMining: 0
-  timeToMove: 2
-  world: {fileID: 0}
 --- !u!212 &7462160408036846758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94,12 +92,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 8149009158662877648, guid: 8ac053b1dc1fc7b4eb18882c6f6d4c11, type: 3}
+  m_Sprite: {fileID: 1119292938320994972, guid: ee41365ee8ba41447956f937bf064ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.92, y: 5.25}
+  m_Size: {x: 5.84, y: 5.88}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -139,17 +137,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.009892106}
+  m_Offset: {x: -0.012504101, y: -0.008864403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.92, y: 5.25}
-    newSize: {x: 6.92, y: 5.25}
+    oldSize: {x: 5.84, y: 5.88}
+    newSize: {x: 5.84, y: 5.88}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.92, y: 5.230216}
+  m_Size: {x: 5.8696537, y: 5.8679266}
   m_EdgeRadius: 0
 --- !u!50 &6503570891730873139
 Rigidbody2D:
