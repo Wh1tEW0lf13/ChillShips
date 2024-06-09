@@ -64,6 +64,10 @@ public class FastShip : PoorShip
                 asteroid.isMining = true;
             }
         }
+        if(!col.CompareTag(gameObject.tag) && col.gameObject.layer == 6)
+        {
+            ShipDestroyer(col.gameObject);
+        }
     }
 }
 
