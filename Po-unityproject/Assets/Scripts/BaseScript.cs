@@ -34,7 +34,7 @@ public class BaseScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == 6)
+        if (col.gameObject.layer == 6 || col.gameObject.layer == 8)
         {
             ShipScript shipCapacity = col.GetComponent<ShipScript>();
             if (col.CompareTag(tag))

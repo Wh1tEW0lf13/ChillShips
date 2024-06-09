@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5074834762955098728}
   - component: {fileID: 6128299924444670829}
   - component: {fileID: -6184610097577601199}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: BlueShipKiller
   m_TagString: Blue
   m_Icon: {fileID: 0}
