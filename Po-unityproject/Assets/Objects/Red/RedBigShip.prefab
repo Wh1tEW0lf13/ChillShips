@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,17 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePos: {fileID: 0}
-  shipSpeed: 7
+  shipSpeed: 20
   tytanCapacity: 0
   ironCapacity: 0
-  Capacity: 10
-  x: 0
-  y: 0
   isComingBack: 0
-  followPosition: {x: 0, y: 0}
-  gameManager: {fileID: 0}
-  world: {fileID: 0}
-  asteroid: {fileID: 0}
+  boom: {fileID: 8300000, guid: 254d4998650e69a499c8d6513c80e09a, type: 3}
   miningTime: 1
   isMining: 0
 --- !u!61 &271187024727249305
@@ -98,10 +92,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.88, y: 1.75}
+    newSize: {x: 3.12, y: 2.65}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -175,14 +169,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -6145634721494887260, guid: c884a4c35929edb42808d205c6501999, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.12, y: 2.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

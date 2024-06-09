@@ -15,7 +15,6 @@ public class ShipKiller : ShipScript
     {
         world = GameObject.Find("World");
         SetBasePosition();
-        shipSpeed = 10f;
         gameManager = world.GetComponent<GameManager>();
         SetFollowPosition();
         x = followPosition.x;
