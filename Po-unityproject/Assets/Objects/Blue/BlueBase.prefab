@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1fddee59988e2448b0bb596705cc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 3
   iron: 0
   tytan: 0
   stackShip: 15
