@@ -50,9 +50,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePos: {fileID: 0}
-  shipSpeed: 30
+  shipSpeed: 60
   tytanCapacity: 0
   ironCapacity: 0
+  Capacity: 10
   isComingBack: 0
   boom: {fileID: 8300000, guid: 254d4998650e69a499c8d6513c80e09a, type: 3}
   enemyTag: 
@@ -333,6 +334,7 @@ MonoBehaviour:
   shipSpeed: 0
   tytanCapacity: 0
   ironCapacity: 0
+  Capacity: 0
   isComingBack: 0
   boom: {fileID: 0}
   enemyTag: 

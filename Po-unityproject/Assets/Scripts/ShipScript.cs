@@ -8,7 +8,7 @@ public class ShipScript : MonoBehaviour
     public float shipSpeed;
     public int tytanCapacity = 0;
     public int ironCapacity = 0;
-    protected int Capacity = 10;
+    [SerializeField]protected int Capacity;
     protected float x, y;
     public bool isComingBack = false;
     protected Vector2 followPosition;
