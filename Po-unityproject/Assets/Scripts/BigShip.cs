@@ -16,8 +16,6 @@ public class BigShip : PoorShip
         y = followPosition.y;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         Move();
