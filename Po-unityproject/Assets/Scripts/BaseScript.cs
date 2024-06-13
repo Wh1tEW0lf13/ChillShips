@@ -64,17 +64,14 @@ public class BaseScript : MonoBehaviour
         if (level == 1 && tytan >= 25)
         {
             level = 2;
-            tytan -= 25;
         }
         else if (level == 2 && tytan >= 100)
         {
             level = 3;
-            tytan -= 100;
         }
         else if (level == 3 && tytan >= 500)
         {
             level = 4;
-            tytan -= 500;
             if (CompareTag("Red"))
             {
                 gameManager.redPanel.gameObject.SetActive(true);
