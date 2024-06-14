@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
         asteroidKillCountRed = 0;
         asteroidKillCountBlue = 0;
         simulationTime = 0f;
+        ShipKiller.blueKillCount = 0;
+        ShipKiller.redKillCount = 0;
 
     }
 

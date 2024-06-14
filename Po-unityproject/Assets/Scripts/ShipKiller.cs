@@ -17,8 +17,6 @@ public class ShipKiller : ShipScript
     void Start()
     {
         Prepare();
-        blueKillCount = 0;
-        redKillCount = 0;
     }
 
     // Update is called once per frame
