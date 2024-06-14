@@ -6,7 +6,7 @@ public class BaseScript : MonoBehaviour
 {
     [SerializeField] private int level = 1;
     [SerializeField] private int iron = 0;
-    [SerializeField] private int tytan = 0;
+    [SerializeField] public int tytan = 0;
     public int stackShip = 15;
     public float timeShipSpawn = 0f;
     private int numbers = 0;
@@ -76,11 +76,13 @@ public class BaseScript : MonoBehaviour
             {
                 gameManager.redPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                GameManager.AddToReport("Red", "Resources", ShipKiller.blueKillCount, ShipKiller.redKillCount, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
             else if (CompareTag("Blue"))
             {
                 gameManager.bluePanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                GameManager.AddToReport("Blue", "Resources", ShipKiller.blueKillCount, ShipKiller.redKillCount, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
         }
 

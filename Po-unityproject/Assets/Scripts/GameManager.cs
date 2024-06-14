@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
             {
                 bluePanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                AddToReport("Blue", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
         }
         else if(tag == "Blue")
@@ -71,9 +73,43 @@ public class GameManager : MonoBehaviour
             {
                 redPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                AddToReport("Red", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
         }
-        
 
+
+    }
+
+    public static void AddToReport(string winner, string winCase, int blueKills, int redKills, int blueTytan, int redTytan)
+    {
+        string filePath = "Report.txt";
+
+        try
+        {
+            // Sprawdź, czy plik istnieje
+            bool fileExists = File.Exists(filePath);
+
+            // Otwórz plik do zapisu (dodaj nowy wiersz na końcu pliku)
+            using (StreamWriter sw = new StreamWriter(filePath, true))
+            {
+                // Jeśli plik nie istniał, dodaj nagłówki
+                if (!fileExists)
+                {
+                    sw.WriteLine("winner,winCase,blueKills,redKills,blueTytan,redTytan");
+                }
+
+                // Zbuduj nowy wiersz z danych
+                string newRow = $"{winner},{winCase},{blueKills},{redKills},{blueTytan},{redTytan}";
+
+                // Dodaj nowy wiersz do pliku
+                sw.WriteLine(newRow);
+            }
+
+            print("Dane zostały pomyślnie dodane do pliku Report.txt.");
+        }
+        catch (System.Exception ex)
+        {
+            print("Wystąpił błąd: " + ex.Message);
+        }
     }
 }
