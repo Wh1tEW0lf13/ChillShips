@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipScript : MonoBehaviour
+public abstract class ShipScript : MonoBehaviour
 {
     public GameObject basePos;
     public float shipSpeed;
@@ -34,6 +34,15 @@ public class ShipScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, followPosition, shipSpeed * Time.deltaTime);
         if (transform.position.x == x && transform.position.y == y)
             isComingBack = true;
+    }
+    
+    protected void Prepare(){
+        world = GameObject.Find("World");
+        SetBasePosition();
+        gameManager = world.GetComponent<GameManager>();
+        SetFollowPosition();
+        x = followPosition.x;
+        y = followPosition.y;
     }
 
     protected void SetBasePosition(){

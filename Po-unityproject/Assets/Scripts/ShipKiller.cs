@@ -16,16 +16,7 @@ public class ShipKiller : ShipScript
     // Start is called before the first frame update
     void Start()
     {
-        world = GameObject.Find("World");
-        SetBasePosition();
-        gameManager = world.GetComponent<GameManager>();
-        SetFollowPosition();
-        x = followPosition.x;
-        y = followPosition.y;
-
-        //ustawienie poszukiwanego tagu na przeciwnika
-        if(gameObject.tag == "Red"){enemyTag = "Blue";}
-        else{enemyTag = "Red";}
+        Prepare();
     }
 
     // Update is called once per frame
@@ -58,6 +49,19 @@ public class ShipKiller : ShipScript
                 }
                 Destroy(collision.gameObject);
             }
+    }
+
+    private new void Prepare(){
+        world = GameObject.Find("World");
+        SetBasePosition();
+        gameManager = world.GetComponent<GameManager>();
+        SetFollowPosition();
+        x = followPosition.x;
+        y = followPosition.y;
+
+        //ustawienie poszukiwanego tagu na przeciwnika
+        if(gameObject.tag == "Red"){enemyTag = "Blue";}
+        else{enemyTag = "Red";}
     }
 
     private void Follow(){

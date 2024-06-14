@@ -8,12 +8,7 @@ public class BigShip : PoorShip
     private new float miningTime = 2f;
     void Start()
     {
-        world = GameObject.Find("World");
-        SetBasePosition();
-        gameManager = world.GetComponent<GameManager>();
-        SetFollowPosition();
-        x = followPosition.x;
-        y = followPosition.y;
+        Prepare();
     }
 
     void Update()

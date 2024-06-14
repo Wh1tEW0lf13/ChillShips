@@ -13,13 +13,7 @@ public class FastShip : PoorShip
     // Start is called before the first frame update
     void Start()
     {
-        world = GameObject.Find("World");
-        SetBasePosition();
-        gameManager = world.GetComponent<GameManager>();
-        FindNearestAsteroid();
-        followPosition = nearestAsteroid;
-        x = followPosition.x;
-        y = followPosition.y;
+        Prepare();
     }
 
     // Update is called once per frame
@@ -29,6 +23,16 @@ public class FastShip : PoorShip
             IsMining();
         if(!isMining)
             Move();
+    }
+
+    private new void Prepare(){
+        world = GameObject.Find("World");
+        SetBasePosition();
+        gameManager = world.GetComponent<GameManager>();
+        FindNearestAsteroid();
+        followPosition = nearestAsteroid;
+        x = followPosition.x;
+        y = followPosition.y;
     }
 
     private void FindNearestAsteroid(){
