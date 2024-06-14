@@ -164,7 +164,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      statekniebieskibiedny_0: -7067906243196062952
+      statekniebieskibiedny_1: 6318371841512655226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      asteroidanieplamiona_0: 1119292938320994972
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      statekniebieskizabijaka_0: 4010353051317171885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

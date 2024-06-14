@@ -164,7 +164,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      statekczerwonybiedny_0: -1990456668340440936
+      statekczerwonybiedny_1: -1202086036072292694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

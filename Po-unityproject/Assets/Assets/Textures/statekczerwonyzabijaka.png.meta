@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      statekczerwonyzabijaka_0: 6816119116157381596
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
