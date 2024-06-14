@@ -49,6 +49,14 @@ public class FastShip : PoorShip
         if(nearestAsteroid == null){isComingBack = true;}
     }
 
+    private new void Move(){
+        if(isComingBack)
+            transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
+        else
+            transform.position = Vector2.MoveTowards(transform.position, followPosition, shipSpeed * Time.deltaTime);
+        //usunięto jednego if'a (który po dotarciu do celu zawracał statek do bazy) z klasy nadrzędnej, Fast Ship zawsze dotrze do asteroidy
+    }
+
     /*
     private void OnTriggerEnter2D(Collider2D col)
     {

@@ -56,26 +56,28 @@ public class BigShip : PoorShip
             isMining = false;
             isComingBack = true;
         }
+        else{
 
 
-        miningTime -= Time.deltaTime;
-        if (Capacity <= ironCapacity + tytanCapacity || asteroid.isEmpty)
-        {
-            isComingBack = true;
-            asteroid.isMining = false;
-            isMining = false;
-        } 
-        if(asteroid.tytanCapacity>0&&miningTime<0)
-        {
-            tytanCapacity++;
-            asteroid.tytanCapacity--;
-            miningTime = 1f;
-        }
-        else if (asteroid.ironCapacity > 0 && miningTime < 0)
-        {
-            ironCapacity++;
-            asteroid.ironCapacity--;
-            miningTime = 1f;
+            miningTime -= Time.deltaTime;
+            if (Capacity <= ironCapacity + tytanCapacity || asteroid.isEmpty)
+            {
+                isComingBack = true;
+                asteroid.isMining = false;
+                isMining = false;
+            } 
+            if(asteroid.tytanCapacity>0&&miningTime<0)
+            {
+                tytanCapacity++;
+                asteroid.tytanCapacity--;
+                miningTime = 1f;
+            }
+            else if (asteroid.ironCapacity > 0 && miningTime < 0)
+            {
+                ironCapacity++;
+                asteroid.ironCapacity--;
+                miningTime = 1f;
+            }
         }
 
     }
