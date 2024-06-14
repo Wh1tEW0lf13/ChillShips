@@ -22,23 +22,27 @@ public class TrapAsteroid : MonoBehaviour
             ResetPosition();
         else
         {
-            Destroy(collision.gameObject);
-            ResetPosition();
-            AudioSource.PlayClipAtPoint(boom, transform.position);
-            gameManager.loseCheck(collision.tag);
-            if(collision.CompareTag("Red"))
-            {
-                GameManager.asteroidKillCountRed++;
-            }
-            else
-            {
-                GameManager.asteroidKillCountBlue++;
-            }
+            DestroyShip(collision.gameObject);
         }
         
     }
     private void ResetPosition()
     {
         transform.position = new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));
+    }
+    private void DestroyShip(GameObject shipInfo)
+    {
+        Destroy(shipInfo.gameObject);
+        ResetPosition();
+        AudioSource.PlayClipAtPoint(boom, transform.position);
+        gameManager.loseCheck(shipInfo.tag);
+        if (shipInfo.CompareTag("Red"))
+        {
+            GameManager.asteroidKillCountRed++;
+        }
+        else
+        {
+            GameManager.asteroidKillCountBlue++;
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -110,6 +111,8 @@ public class GameManager : MonoBehaviour
             }
 
             print("Dane zostały pomyślnie dodane do pliku");
+            SceneManager.LoadScene("Simulation");
+            Time.timeScale = 100;
         }
         catch (System.Exception ex)
         {
