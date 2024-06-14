@@ -21,12 +21,6 @@ public abstract class ShipScript : MonoBehaviour
         SetBasePosition();
         gameManager = world.GetComponent<GameManager>();
     }
-    void Update()
-    {  
-        Move();  
-    }
-
-
     protected void Move(){
         if(isComingBack)
             transform.position = Vector2.MoveTowards(transform.position, basePos.transform.position, shipSpeed * Time.deltaTime);
