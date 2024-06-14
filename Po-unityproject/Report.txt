@@ -1,0 +1,2 @@
+winner,winCase,blueKills,redKills,asteroidKillsBlue,asteroidKillsRed,blueTytan,redTytan,simulationTime
+Blue,Resources,25,20,0,0,504,150,12812.26

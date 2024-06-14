@@ -42,7 +42,7 @@ public class ShipKiller : ShipScript
 
     //colider podstawowy - wielkosci sprita - sluzy do niszeczenia i bycia niszczonym
     private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.CompareTag(enemyTag)){
+        if(collision.gameObject.CompareTag(enemyTag) && !collision.gameObject.GetComponent<PoorShip>().isMining){
                 print("destroy");
                 //zliczanie ilości zniszczonych statków przeciwnika przez killer shipy
                 if(enemyTag == "Red"){

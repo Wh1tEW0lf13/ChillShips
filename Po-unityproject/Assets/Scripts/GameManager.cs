@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private static float simulationTime = 0f;
     public static int asteroidKillCountRed = 0;
     public static int asteroidKillCountBlue = 0;
+    private static int asteroidRatio = 10;
 
     void Start()
     {
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         for(int i = 0; i < asteroidQuantity; i++)
         Instantiate(QuerryAstroid, Placement(), spin).name = "QuerryAsteroid" + i;
-        for(int i = 0; i < asteroidQuantity/10; i++)
+        for(int i = 0; i < asteroidQuantity/asteroidRatio; i++)
         Instantiate(TrapAsteroid, Placement(), spin).name = "TrapAsteroid" + i;
     }
     Vector3 Placement(int red, int blue)
