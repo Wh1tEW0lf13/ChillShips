@@ -1,4 +1,0 @@
-winner,winCase,blueKills,redKills,blueTytan,redTytan
-Blue,Killed Enemy,2,0,198,98
-Blue,Killed Enemy,2,0,292,79
-Blue,Resources,9,10,500,167

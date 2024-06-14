@@ -28,11 +28,11 @@ public class TrapAsteroid : MonoBehaviour
             gameManager.loseCheck(collision.tag);
             if(collision.CompareTag("Red"))
             {
-                gameManager.asteroidKillCountRed++;
+                GameManager.asteroidKillCountRed++;
             }
             else
             {
-                gameManager.asteroidKillCountBlue++;
+                GameManager.asteroidKillCountBlue++;
             }
         }
         

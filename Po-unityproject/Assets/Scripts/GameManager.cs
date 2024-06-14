@@ -18,9 +18,9 @@ public class GameManager : MonoBehaviour
     [Header("EndGamePanel")]
     [SerializeField] public Canvas bluePanel;
     [SerializeField] public Canvas redPanel;
-    [SerializeField] private float simulationTime = 0f;
-    public int asteroidKillCountRed = 0;
-    public int asteroidKillCountBlue = 0;
+    [SerializeField] private static float simulationTime = 0f;
+    public static int asteroidKillCountRed = 0;
+    public static int asteroidKillCountBlue = 0;
 
     void Start()
     {
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         for(int i = 0; i < asteroidQuantity; i++)
         Instantiate(QuerryAstroid, Placement(), spin).name = "QuerryAsteroid" + i;
-        for(int i = 0; i < asteroidQuantity/5; i++)
+        for(int i = 0; i < asteroidQuantity/10; i++)
         Instantiate(TrapAsteroid, Placement(), spin).name = "TrapAsteroid" + i;
     }
     Vector3 Placement(int red, int blue)
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             {
                 bluePanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                AddToReport("Blue", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, 1, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
+                AddToReport("Blue", "Killed Enemy");
             }
         }
         else if(tag == "Blue")
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             {
                 redPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                AddToReport("Red", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, 1, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
+                AddToReport("Red", "Killed Enemy");
             }
         }
 
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Funkcja Add report tworzy podsumowanie kazdej symulacji w celu ułatwienia zebrania danych do sprawozdania
-    public static void AddToReport(string winner, string winCase, int blueKills, int redKills, int asteroidKills, int blueTytan, int redTytan)
+    public static void AddToReport(string winner, string winCase)
     {
         string filePath = "Report.txt";
 
@@ -100,11 +100,11 @@ public class GameManager : MonoBehaviour
                 //Dodanie nagłówków
                 if (!fileExists)
                 {
-                    sw.WriteLine("winner,winCase,blueKills,redKills,asteroidKills,blueTytan,redTytan");
+                    sw.WriteLine("winner,winCase,blueKills,redKills,asteroidKillsBlue,asteroidKillsRed,blueTytan,redTytan,simulationTime");
                 }
 
                 //Zbuduj nowy wiersz z danych
-                string newRow = $"{winner},{winCase},{blueKills},{redKills},{asteroidKills},{blueTytan},{redTytan}";
+                string newRow = $"{winner},{winCase},{ShipKiller.blueKillCount},{ShipKiller.redKillCount},{asteroidKillCountBlue},{asteroidKillCountRed},{GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan},{GameObject.Find("RedBase").GetComponent<BaseScript>().tytan},{simulationTime}";
                 sw.WriteLine(newRow);
             }
 
