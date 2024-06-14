@@ -37,7 +37,7 @@ public class PoorShip : ShipScript
                 asteroid.isMining = true;
             }
         }
-        if(!col.CompareTag(gameObject.tag) && col.gameObject.layer == 6)
+        if(!col.CompareTag(gameObject.tag) && col.gameObject.layer == 6 && !col.gameObject.GetComponent<PoorShip>().isMining)
         {
             ShipDestroyer(col.gameObject);
         }
