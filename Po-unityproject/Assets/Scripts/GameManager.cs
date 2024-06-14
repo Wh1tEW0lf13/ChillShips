@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
             {
                 bluePanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                AddToReport("Blue", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
+                AddToReport("Blue", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, 1, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
         }
         else if(tag == "Blue")
@@ -73,39 +74,37 @@ public class GameManager : MonoBehaviour
             {
                 redPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                AddToReport("Red", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
+                AddToReport("Red", "Killed Enemy", ShipKiller.blueKillCount, ShipKiller.redKillCount, 1, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
         }
 
 
     }
 
-    public static void AddToReport(string winner, string winCase, int blueKills, int redKills, int blueTytan, int redTytan)
+    //Funkcja Add report tworzy podsumowanie kazdej symulacji w celu ułatwienia zebrania danych do sprawozdania
+    public static void AddToReport(string winner, string winCase, int blueKills, int redKills, int asteroidKills, int blueTytan, int redTytan)
     {
         string filePath = "Report.txt";
 
         try
         {
-            // Sprawdź, czy plik istnieje
+            // Sprawdzanie czy plik istnieje
             bool fileExists = File.Exists(filePath);
 
-            // Otwórz plik do zapisu (dodaj nowy wiersz na końcu pliku)
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
-                // Jeśli plik nie istniał, dodaj nagłówki
+                //Dodanie nagłówków
                 if (!fileExists)
                 {
-                    sw.WriteLine("winner,winCase,blueKills,redKills,blueTytan,redTytan");
+                    sw.WriteLine("winner,winCase,blueKills,redKills,asteroidKills,blueTytan,redTytan");
                 }
 
-                // Zbuduj nowy wiersz z danych
-                string newRow = $"{winner},{winCase},{blueKills},{redKills},{blueTytan},{redTytan}";
-
-                // Dodaj nowy wiersz do pliku
+                //Zbuduj nowy wiersz z danych
+                string newRow = $"{winner},{winCase},{blueKills},{redKills},{asteroidKills},{blueTytan},{redTytan}";
                 sw.WriteLine(newRow);
             }
 
-            print("Dane zostały pomyślnie dodane do pliku Report.txt.");
+            print("Dane zostały pomyślnie dodane do pliku");
         }
         catch (System.Exception ex)
         {

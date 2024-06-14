@@ -8,6 +8,7 @@ public class TrapAsteroid : MonoBehaviour
     public AudioClip boom;
     private GameObject world;
     int xSpawn, ySpawn;
+    public static int asteroidKills = 0;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class TrapAsteroid : MonoBehaviour
             ResetPosition();
             AudioSource.PlayClipAtPoint(boom, transform.position);
             gameManager.loseCheck(collision.tag);
+            asteroidKills++;
         }
         
     }
