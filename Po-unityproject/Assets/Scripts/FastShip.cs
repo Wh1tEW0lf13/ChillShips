@@ -49,7 +49,7 @@ public class FastShip : PoorShip
         if(nearestAsteroid == null){isComingBack = true;}
     }
 
-    
+    /*
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("asteroid"))
@@ -69,5 +69,6 @@ public class FastShip : PoorShip
             ShipDestroyer(col.gameObject);
         }
     }
+    */
 }
 

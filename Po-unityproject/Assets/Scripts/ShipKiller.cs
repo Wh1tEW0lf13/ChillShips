@@ -9,6 +9,9 @@ public class ShipKiller : ShipScript
     public string enemyTag;
     [SerializeField] public GameObject followedShip;
     public bool isFollowing = false;
+    public static int blueKillCount = 0;
+    public static int redKillCount = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,13 @@ public class ShipKiller : ShipScript
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag(enemyTag)){
                 print("destroy");
+                //zliczanie ilości zniszczonych statków przeciwnika przez killer shipy
+                if(enemyTag == "Red"){
+                    blueKillCount ++;
+                }
+                else if(enemyTag == "Blue"){
+                    redKillCount ++;
+                }
                 //warunek póki co nie pozwala zacząć przyjmowania surowców ponad górny limit, ale nie wyklucza ze zebrae za jedym podejsciem przekrocza ten limit
                 if(ironCapacity + tytanCapacity < Capacity){
                     ironCapacity += collision.gameObject.GetComponent<ShipScript>().ironCapacity;

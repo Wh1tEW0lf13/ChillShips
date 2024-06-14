@@ -23,6 +23,7 @@ public class BigShip : PoorShip
             IsMining();
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("asteroid"))
@@ -41,6 +42,7 @@ public class BigShip : PoorShip
             ShipDestroyer(col.gameObject);
         }
     }
+    */
 
     public new void IsMining()
     {
