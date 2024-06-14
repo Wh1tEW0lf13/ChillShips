@@ -53,8 +53,10 @@ public class BigShip : PoorShip
             tytanCapacity += asteroid.tytanCapacity;
             asteroid.ironCapacity = 0;
             asteroid.tytanCapacity = 0; 
-            isMining = false;
+            
+            asteroid.isMining = false;
             isComingBack = true;
+            isMining = false;
         }
         else{
 
