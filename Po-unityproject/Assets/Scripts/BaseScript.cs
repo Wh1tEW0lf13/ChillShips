@@ -36,57 +36,16 @@ public class BaseScript : MonoBehaviour
     {
         if (col.gameObject.layer == 6 || col.gameObject.layer == 8)
         {
-            ShipScript shipCapacity = col.GetComponent<ShipScript>();
-            if (col.CompareTag(tag))
-            {
-                if (shipCapacity.isComingBack)
-                {
-                    iron += shipCapacity.ironCapacity / 2;
-                    tytan += shipCapacity.tytanCapacity / 2;
-                    stackShip++;
-                    Destroy(col.gameObject);
-                }
-            }
-            else
-            {
-                iron += shipCapacity.ironCapacity / 2;
-                tytan += shipCapacity.tytanCapacity / 2;
-                stackShip++;
-                Destroy(col.gameObject);
-                gameManager.loseCheck(col.gameObject.tag);
-            }
+            GetResources(col);
         }
         if (iron >= 5)
         {
             stackShip++;
             iron -= 5;
         }
-        if (level == 1 && tytan >= 25)
-        {
-            level = 2;
-        }
-        else if (level == 2 && tytan >= 100)
-        {
-            level = 3;
-        }
-        else if (level == 3 && tytan >= 500)
-        {
-            level = 4;
-            if (CompareTag("Red"))
-            {
-                gameManager.redPanel.gameObject.SetActive(true);
-                Time.timeScale = 0;
-                GameManager.AddToReport("Red", "Resources");
-            }
-            else if (CompareTag("Blue"))
-            {
-                gameManager.bluePanel.gameObject.SetActive(true);
-                Time.timeScale = 0;
-                GameManager.AddToReport("Blue", "Resources");
-            }
-        }
-
+        LvlUp();
     }
+
     void ShipSpawner()
     {
         timeShipSpawn -= Time.deltaTime;    
@@ -145,7 +104,7 @@ public class BaseScript : MonoBehaviour
                 timeShipSpawn = 4f;
             }
         }
-    void PoorShipSpawner(string tag)
+    private void PoorShipSpawner(string tag)
     {
         if(tag == "Blue")
         {
@@ -158,7 +117,7 @@ public class BaseScript : MonoBehaviour
             numbers++;
         }
     }
-    void BigShipSpawner(string tag)
+    private void BigShipSpawner(string tag)
     {
         if (tag == "Blue")
         {
@@ -171,7 +130,7 @@ public class BaseScript : MonoBehaviour
             numbers++;
         }
     }
-    void FastShipSpawner(string tag)
+    private void FastShipSpawner(string tag)
     {
         if (tag == "Blue")
         {
@@ -184,7 +143,7 @@ public class BaseScript : MonoBehaviour
             numbers++;
         }
     }
-    void KillerShipSpawner(string tag)
+    private void KillerShipSpawner(string tag)
     {
         if (tag == "Blue")
         {
@@ -196,6 +155,54 @@ public class BaseScript : MonoBehaviour
             Instantiate(redKillerShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
             numbers++;
         }
+    }
+    private void LvlUp(){
+        if (level == 1 && tytan >= 25)
+        {
+            level = 2;
+        }
+        else if (level == 2 && tytan >= 100)
+        {
+            level = 3;
+        }
+        else if (level == 3 && tytan >= 500)
+        {
+            level = 4;
+            if (CompareTag("Red"))
+            {
+                gameManager.redPanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
+                GameManager.AddToReport("Red", "Resources");
+            }
+            else if (CompareTag("Blue"))
+            {
+                gameManager.bluePanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
+                GameManager.AddToReport("Blue", "Resources");
+            }
+        }
+
+    }
+    private void GetResources(Collider2D col){
+        ShipScript shipCapacity = col.GetComponent<ShipScript>();
+            if (col.CompareTag(tag))
+            {
+                if (shipCapacity.isComingBack)
+                {
+                    iron += shipCapacity.ironCapacity / 2;
+                    tytan += shipCapacity.tytanCapacity / 2;
+                    stackShip++;
+                    Destroy(col.gameObject);
+                }
+            }
+            else
+            {
+                iron += shipCapacity.ironCapacity / 2;
+                tytan += shipCapacity.tytanCapacity / 2;
+                stackShip++;
+                Destroy(col.gameObject);
+                gameManager.loseCheck(col.gameObject.tag);
+            }
     }
 
 }

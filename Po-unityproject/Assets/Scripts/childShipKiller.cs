@@ -5,19 +5,6 @@ using UnityEngine;
 
 public class childShipKiller : ShipKiller
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //collider rozszerzony - spelnia fnkcje radaru i namierzania bliskich statkow
     void OnTriggerEnter2D(Collider2D collision)
     {
