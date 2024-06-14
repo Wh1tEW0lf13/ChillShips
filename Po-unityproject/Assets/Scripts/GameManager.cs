@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
         BaseCreator();
         AsteroidCreator();
         spin = new Quaternion(0, 0, 0, 0);
+        asteroidKillCountRed = 0;
+        asteroidKillCountBlue = 0;
+        simulationTime = 0f;
 
     }
 

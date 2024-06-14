@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class childShipKiller : ShipKiller
+public class childShipKiller : MonoBehaviour
 {
     //collider rozszerzony - spelnia fnkcje radaru i namierzania bliskich statkow
     void OnTriggerEnter2D(Collider2D collision)
