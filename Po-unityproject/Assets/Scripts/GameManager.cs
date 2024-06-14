@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Canvas bluePanel;
     [SerializeField] public Canvas redPanel;
     [SerializeField] private float simulationTime = 0f;
-    
+    public int asteroidKillCountRed = 0;
+    public int asteroidKillCountBlue = 0;
+
     void Start()
     {
         BaseCreator();

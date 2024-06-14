@@ -76,13 +76,13 @@ public class BaseScript : MonoBehaviour
             {
                 gameManager.redPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                GameManager.AddToReport("Red", "Resources", ShipKiller.blueKillCount, ShipKiller.redKillCount, TrapAsteroid.asteroidKills, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
+                GameManager.AddToReport("Red", "Resources", ShipKiller.blueKillCount, ShipKiller.redKillCount, gameManager.asteroidKillCountRed, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
             else if (CompareTag("Blue"))
             {
                 gameManager.bluePanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                GameManager.AddToReport("Blue", "Resources", ShipKiller.blueKillCount, ShipKiller.redKillCount, TrapAsteroid.asteroidKills, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
+                GameManager.AddToReport("Blue", "Resources", ShipKiller.blueKillCount, ShipKiller.redKillCount, gameManager.asteroidKillCountBlue, GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan, GameObject.Find("RedBase").GetComponent<BaseScript>().tytan);
             }
         }
 
