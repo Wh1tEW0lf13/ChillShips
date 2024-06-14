@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [Header("EndGamePanel")]
     [SerializeField] public Canvas bluePanel;
     [SerializeField] public Canvas redPanel;
+    [SerializeField] private float simulationTime = 0f;
     
     void Start()
     {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        simulationTime += Time.deltaTime;
         if(Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
