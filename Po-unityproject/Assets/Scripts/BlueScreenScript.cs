@@ -8,7 +8,6 @@ public class BlueScreenScript : MonoBehaviour
     [SerializeField]
     private float time = 10f; 
 
-    // Update is called once per frame
     void Update()
     {
         time -= Time.deltaTime;

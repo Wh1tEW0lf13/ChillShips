@@ -64,17 +64,14 @@ public class BaseScript : MonoBehaviour
         if (level == 1 && tytan >= 25)
         {
             level = 2;
-            tytan -= 25;
         }
         else if (level == 2 && tytan >= 100)
         {
             level = 3;
-            tytan -= 100;
         }
         else if (level == 3 && tytan >= 500)
         {
             level = 4;
-            tytan -= 5000;
             if (CompareTag("Red"))
             {
                 gameManager.redPanel.gameObject.SetActive(true);
@@ -90,35 +87,34 @@ public class BaseScript : MonoBehaviour
     }
     void ShipSpawner()
     {
-        timeShipSpawn -= Time.deltaTime;
+        timeShipSpawn -= Time.deltaTime;    
         if (timeShipSpawn < 0)
         {
+            string shipTag = "";
             int shipType;
             if (CompareTag("Red"))
-            {
+               shipTag = "Red";
+            else if (CompareTag("Blue"))
+               shipTag = "Blue";
+
                 switch (level)
                 {
                     case (1):
-                        Instantiate(redShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
-                        numbers++;
-                        timeShipSpawn = 4f;
+                    PoorShipSpawner(shipTag);
                         break;
                     case (2):
                         shipType = Random.Range(1, 101);
                         if (shipType <= 50)
                         {
-                            Instantiate(redShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
-                            numbers++;
+                            PoorShipSpawner(shipTag);
                         }
                         else if (shipType > 50 && shipType <= 75)
                         {
-                            Instantiate(redFastShipObject, transform.position, transform.rotation).name = tag + "FastShip" + numbers;
-                            numbers++;
+                            FastShipSpawner(shipTag);
                         }
                         else
                         {
-                            Instantiate(redBigShipObject, transform.position, transform.rotation).name = tag + "BigShip" + numbers;
-                            numbers++;
+                            BigShipSpawner(shipTag);
                         }
                         break;
                     case (3):
@@ -126,84 +122,78 @@ public class BaseScript : MonoBehaviour
                             shipType = Random.Range(1, 101);
                             if (shipType <= 40)
                             {
-                                Instantiate(redShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
-                                numbers++;
+                                PoorShipSpawner(shipTag);
                             }
                             else if (shipType > 40 && shipType <= 65)
                             {
-                                Instantiate(redFastShipObject, transform.position, transform.rotation).name = tag + "FastShip" + numbers;
-                                numbers++;
+                                FastShipSpawner(shipTag);
                             }
                             else if (shipType > 65 && shipType <= 90)
                             {
-                                Instantiate(redBigShipObject, transform.position, transform.rotation).name = tag + "BigShip" + numbers;
-                                numbers++;
+                                BigShipSpawner(shipTag);
                             }
                             else
                             {
-                                Instantiate(redKillerShipObject, transform.position, transform.rotation).name = tag + "KillerShip" + numbers;
-                                numbers++;
+                                KillerShipSpawner(shipTag);
                             }
                             break;
                         }
-                }
-            }
-            else if (CompareTag("Blue"))
-                {
-                    switch (level)
-                    {
-                        case (1):
-                            Instantiate(blueShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
-                            numbers++;
-                            timeShipSpawn = 4f;
-                            break;
-                        case (2):
-                            shipType = Random.Range(1, 101);
-                            if (shipType <= 50)
-                            {
-                                Instantiate(blueShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
-                                numbers++;
-                            }
-                            else if (shipType > 50 && shipType <= 75)
-                            {
-                                Instantiate(blueFastShipObject, transform.position, transform.rotation).name = tag + "FastShip" + numbers;
-                                numbers++;
-                            }
-                            else
-                            {
-                                Instantiate(blueBigShipObject, transform.position, transform.rotation).name = tag + "BigShip" + numbers;
-                                numbers++;
-                            }
-                            break;
-                        case (3):
-                            {
-                                shipType = Random.Range(1, 101);
-                                if (shipType <= 40)
-                                {
-                                    Instantiate(blueShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
-                                    numbers++;
-                                }
-                                else if (shipType > 40 && shipType <= 65)
-                                {
-                                    Instantiate(blueFastShipObject, transform.position, transform.rotation).name = tag + "FastShip" + numbers;
-                                    numbers++;
-                                }
-                                else if (shipType > 65 && shipType <= 90)
-                                {
-                                    Instantiate(blueBigShipObject, transform.position, transform.rotation).name = tag + "BigShip" + numbers;
-                                    numbers++;
-                                }
-                                else
-                                {
-                                    Instantiate(blueKillerShipObject, transform.position, transform.rotation).name = tag + "KillerShip" + numbers;
-                                    numbers++;
-                                }
-                                break;
-                            }
                     }
-                }
                 stackShip--;
                 timeShipSpawn = 4f;
             }
         }
+    void PoorShipSpawner(string tag)
+    {
+        if(tag == "Blue")
+        {
+            Instantiate(blueShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
+        else if(tag == "Red")
+        {
+            Instantiate(redShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
     }
+    void BigShipSpawner(string tag)
+    {
+        if (tag == "Blue")
+        {
+            Instantiate(blueBigShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
+        else if (tag == "Red")
+        {
+            Instantiate(redBigShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
+    }
+    void FastShipSpawner(string tag)
+    {
+        if (tag == "Blue")
+        {
+            Instantiate(blueFastShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
+        else if (tag == "Red")
+        {
+            Instantiate(redFastShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
+    }
+    void KillerShipSpawner(string tag)
+    {
+        if (tag == "Blue")
+        {
+            Instantiate(blueKillerShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
+        else if (tag == "Red")
+        {
+            Instantiate(redKillerShipObject, transform.position, transform.rotation).name = tag + "Ship" + numbers;
+            numbers++;
+        }
+    }
+
+}

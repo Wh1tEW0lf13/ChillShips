@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PoorShip : ShipScript
 {
-    public Asteroid asteroid;
-    [SerializeField] protected float miningTime = 1f;
+    protected Asteroid asteroid;
+    protected float miningTime = 1f;
     public bool isMining;
     void Start()
     {

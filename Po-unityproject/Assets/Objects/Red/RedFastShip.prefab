@@ -100,12 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePos: {fileID: 0}
-  shipSpeed: 40
+  shipSpeed: 80
   tytanCapacity: 0
   ironCapacity: 0
+  Capacity: 10
   isComingBack: 0
   boom: {fileID: 8300000, guid: 254d4998650e69a499c8d6513c80e09a, type: 3}
-  miningTime: 1
   isMining: 0
 --- !u!50 &3382403915740925082
 Rigidbody2D:
