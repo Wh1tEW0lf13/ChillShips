@@ -172,13 +172,13 @@ public class BaseScript : MonoBehaviour
             {
                 gameManager.redPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                GameManager.AddToReport("Red", "Resources");
+                gameManager.AddToReport("Red", "Resources");
             }
             else if (CompareTag("Blue"))
             {
                 gameManager.bluePanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                GameManager.AddToReport("Blue", "Resources");
+                gameManager.AddToReport("Blue", "Resources");
             }
         }
 

@@ -9,16 +9,12 @@ public class ShipKiller : ShipScript
     public string enemyTag;
     [SerializeField] public GameObject followedShip;
     public bool isFollowing = false;
-    public static int blueKillCount = 0;
-    public static int redKillCount = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
         Prepare();
-        blueKillCount = 0;
-        redKillCount = 0;
     }
 
     // Update is called once per frame
@@ -35,22 +31,22 @@ public class ShipKiller : ShipScript
 
     //colider podstawowy - wielkosci sprita - sluzy do niszeczenia i bycia niszczonym
     private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.CompareTag(enemyTag) && !collision.gameObject.GetComponent<PoorShip>().isMining){
-                print("destroy");
-                //zliczanie ilości zniszczonych statków przeciwnika przez killer shipy
-                if(enemyTag == "Red"){
-                    blueKillCount ++;
-                }
-                else if(enemyTag == "Blue"){
-                    redKillCount ++;
-                }
-                //warunek póki co nie pozwala zacząć przyjmowania surowców ponad górny limit, ale nie wyklucza ze zebrae za jedym podejsciem przekrocza ten limit
-                if(ironCapacity + tytanCapacity < Capacity){
-                    ironCapacity += collision.gameObject.GetComponent<ShipScript>().ironCapacity;
-                    tytanCapacity += collision.gameObject.GetComponent<ShipScript>().tytanCapacity;
-                }
-                Destroy(collision.gameObject);
+        if (collision.gameObject.layer == 6 && collision.gameObject.CompareTag(enemyTag) && !collision.gameObject.GetComponent<PoorShip>().isMining)
+        {
+            print("destroy");
+            //warunek póki co nie pozwala zacząć przyjmowania surowców ponad górny limit, ale nie wyklucza ze zebrae za jedym podejsciem przekrocza ten limit
+            if (ironCapacity + tytanCapacity < Capacity)
+            {
+                ironCapacity += collision.gameObject.GetComponent<ShipScript>().ironCapacity;
+                tytanCapacity += collision.gameObject.GetComponent<ShipScript>().tytanCapacity;
             }
+            ShipDestroyer(collision.gameObject);
+        }
+        else if (collision.gameObject.layer == 8 && collision.gameObject.CompareTag(enemyTag)) 
+        {
+            ShipDestroyer(collision.gameObject);
+        }
+        
     }
 
     private new void Prepare(){

@@ -33,6 +33,7 @@ public class TrapAsteroid : MonoBehaviour
     private void DestroyShip(GameObject shipInfo)
     {
         Destroy(shipInfo.gameObject);
+        gameManager.loseCheck(shipInfo.gameObject.tag);
         ResetPosition();
         AudioSource.PlayClipAtPoint(boom, transform.position);
         gameManager.loseCheck(shipInfo.tag);

@@ -59,8 +59,16 @@ public abstract class ShipScript : MonoBehaviour
     }
     protected void ShipDestroyer(GameObject ship)
     {
-            Destroy(ship.gameObject);
-            AudioSource.PlayClipAtPoint(boom, ship.transform.position);
-            gameManager.loseCheck(ship.tag);
+        if(ship.tag=="Red")
+        {
+            gameManager.blueKillCount++;
+        }
+        else if(ship.tag=="Blue")
+        {
+            gameManager.redKillCount++;
+        }
+        Destroy(ship.gameObject);
+        AudioSource.PlayClipAtPoint(boom, ship.transform.position);
+        gameManager.loseCheck(ship.tag);
     }
 }

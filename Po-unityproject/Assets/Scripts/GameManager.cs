@@ -19,13 +19,17 @@ public class GameManager : MonoBehaviour
     [Header("EndGamePanel")]
     [SerializeField] public Canvas bluePanel;
     [SerializeField] public Canvas redPanel;
-    [SerializeField] private static float simulationTime = 0f;
+    [SerializeField] private float simulationTime = 0f;
     public static int asteroidKillCountRed = 0;
     public static int asteroidKillCountBlue = 0;
+    public int redKillCount;
+    public int blueKillCount;
     private static int asteroidRatio = 10;
 
     void Start()
     {
+        redKillCount = 0;
+        blueKillCount = 0;
         BaseCreator();
         AsteroidCreator();
         spin = new Quaternion(0, 0, 0, 0);
@@ -70,6 +74,7 @@ public class GameManager : MonoBehaviour
         GameObject blue = GameObject.Find("BlueBase");
         if(tag == "Red")
         {
+
             if (red.GetComponent<BaseScript>().stackShip + numberOfObjects <= 2)
             {
                 bluePanel.gameObject.SetActive(true);
@@ -91,7 +96,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Funkcja Add report tworzy podsumowanie kazdej symulacji w celu ułatwienia zebrania danych do sprawozdania
-    public static void AddToReport(string winner, string winCase)
+    public void AddToReport(string winner, string winCase)
     {
         string filePath = "Report.txt";
 
@@ -109,7 +114,7 @@ public class GameManager : MonoBehaviour
                 }
 
                 //Zbuduj nowy wiersz z danych
-                string newRow = $"{winner},{winCase},{ShipKiller.blueKillCount},{ShipKiller.redKillCount},{asteroidKillCountBlue},{asteroidKillCountRed},{GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan},{GameObject.Find("RedBase").GetComponent<BaseScript>().tytan},{simulationTime}";
+                string newRow = $"{winner},{winCase},{blueKillCount},{redKillCount},{asteroidKillCountBlue},{asteroidKillCountRed},{GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan},{GameObject.Find("RedBase").GetComponent<BaseScript>().tytan},{Mathf.Round(simulationTime)}";
                 sw.WriteLine(newRow);
             }
 
