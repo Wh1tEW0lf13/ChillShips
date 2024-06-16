@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour
     public int tytanCapacity = 0;
     public bool isEmpty;
     public bool isMining = false;
-    private float timeToMove;
+    private float timeToMove = 2f;
     GameManager gameManager;
     private int xSpawn, ySpawn;
     private GameObject world;

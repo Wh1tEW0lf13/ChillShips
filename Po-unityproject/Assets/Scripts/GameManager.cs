@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
             {
                 bluePanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                AddToReport("Blue", "Killed Enemy");
+               // AddToReport("Blue", "Killed Enemy");
             }
         }
         else if(tag == "Blue")
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
             {
                 redPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                AddToReport("Red", "Killed Enemy");
+                //AddToReport("Red", "Killed Enemy");
             }
         }
 
@@ -98,28 +98,23 @@ public class GameManager : MonoBehaviour
     }
 
     //Funkcja Add report tworzy podsumowanie kazdej symulacji w celu ułatwienia zebrania danych do sprawozdania
-    public void AddToReport(string winner, string winCase)
+    /*public void AddToReport(string winner, string winCase)
     {
         string filePath = "Report.txt";
 
         try
         {
-            // Sprawdzanie czy plik istnieje
             bool fileExists = File.Exists(filePath);
 
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
-                //Dodanie nagłówków
                 if (!fileExists)
                 {
                     sw.WriteLine("winner,winCase,blueKills,redKills,asteroidKillsBlue,asteroidKillsRed,blueTytan,redTytan,simulationTime");
                 }
-
-                //Zbuduj nowy wiersz z danych
                 string newRow = $"{winner},{winCase},{blueKillCount},{redKillCount},{asteroidKillCountBlue},{asteroidKillCountRed},{GameObject.Find("BlueBase").GetComponent<BaseScript>().tytan},{GameObject.Find("RedBase").GetComponent<BaseScript>().tytan},{Mathf.Round(simulationTime)}";
                 sw.WriteLine(newRow);
             }
-
             print("Dane zostały pomyślnie dodane do pliku");
             SceneManager.LoadScene("Simulation");
             Time.timeScale = 100;
@@ -128,5 +123,5 @@ public class GameManager : MonoBehaviour
         {
             print("Wystąpił błąd: " + ex.Message);
         }
-    }
+    }*/
 }
