@@ -10,13 +10,11 @@ public class FastShip : PoorShip
     private float distance;
     private float nearestDistance = 1000000000;
     
-    // Start is called before the first frame update
     void Start()
     {
         Prepare();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isMining&&!isComingBack)
@@ -35,6 +33,7 @@ public class FastShip : PoorShip
         y = followPosition.y;
     }
 
+    //Przesukuje wszystkie obiekty z tagiem asteroid, w celu znalezienia najblizszej niezajetej asteroidy
     private void FindNearestAsteroid(){
         //Póki co działa na kady obiekt z tagiem, potem mozna to zmienic na wynajdywanie obiektow, albo tworzyc asteroidy juz z tagiem
         AllAsteroids = GameObject.FindGameObjectsWithTag("asteroid");

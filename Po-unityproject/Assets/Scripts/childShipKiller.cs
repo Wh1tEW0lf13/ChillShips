@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//klasa stworzona w celu dodania drugiego colidera do Ship killera
 public class childShipKiller : MonoBehaviour
 {
     //collider rozszerzony - spelnia fnkcje radaru i namierzania bliskich statkow

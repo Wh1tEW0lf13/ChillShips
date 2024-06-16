@@ -39,9 +39,12 @@ public class BigShip : PoorShip
     }
     */
 
+    //polimorfyzm względem bazowej funkcji
     public new void IsMining()
     {
         
+        //sprawdza czy jest w stanie zmieścić wszystkie surowce na raz
+        //jezeli tak, pobiera je wszystkie
         if(asteroid.ironCapacity + asteroid.tytanCapacity <= Capacity - ironCapacity - tytanCapacity)
         {
             ironCapacity += asteroid.ironCapacity;

@@ -11,13 +11,12 @@ public class ShipKiller : ShipScript
     public bool isFollowing = false;
 
 
-    // Start is called before the first frame update
-    void Start()
+        void Start()
     {
         Prepare();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(isFollowing && followedShip != null){
