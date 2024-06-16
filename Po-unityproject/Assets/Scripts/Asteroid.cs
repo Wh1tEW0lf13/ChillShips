@@ -15,7 +15,7 @@ public class Asteroid : MonoBehaviour
     void Start()
     {
         world = GameObject.Find("World");
-        gameManager = world.GetComponent<GameManager>();
+        gameManager = world.GetComponent<GameManager>();    //Odow³anie siê do œwiata po to by mieæ dostêp do wielkoœci œwiata, by móc losowaæ swoj¹ pozycjê
         xSpawn = gameManager.xSpawn;
         ySpawn = gameManager.ySpawn;
         AsteroidCapacity();
@@ -38,13 +38,13 @@ public class Asteroid : MonoBehaviour
             ResetPosition(); 
         }
     }
-    private void ResetPosition()
+    private void ResetPosition()    //Ustawia now¹ pozycjê
     {
-        timeToMove = 5f;
-        transform.position = new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));
+        timeToMove = 5f;    //Jest to po to, ¿e jak siê zrespi na innym obiekcie, ma czas na zmianê pozycji
+        transform.position = new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn)); //losowanie gdzie ma siê pojawiæ
         AsteroidCapacity();
     }
-    private void AsteroidCapacity()
+    private void AsteroidCapacity() // losuje jakie materia³y ma mieæ w sobie
     {
         tytanCapacity = ironCapacity = 0;
         switch (Random.Range(0, 2))
