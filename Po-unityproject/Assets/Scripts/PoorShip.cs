@@ -40,7 +40,7 @@ public class PoorShip : ShipScript
     }
 
 
-    public void IsMining()
+    public void IsMining()  //S³u¿y do pobierania zasobów z asteroidy
     {
         miningTime -= Time.deltaTime;
         if (Capacity <= ironCapacity + tytanCapacity || asteroid.isEmpty)

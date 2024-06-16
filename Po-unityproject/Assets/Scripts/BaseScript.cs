@@ -34,7 +34,7 @@ public class BaseScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == 6 || col.gameObject.layer == 8)
+        if (col.gameObject.layer == 6 || col.gameObject.layer == 8) // Sprawdza czy objekt z którym baza skolidowa³a jest shipem layer = 6 to ship, a 8 to shipKiller
         {
             GetResources(col);
         }
@@ -46,7 +46,7 @@ public class BaseScript : MonoBehaviour
         LvlUp();
     }
 
-    void ShipSpawner()
+    void ShipSpawner()  // Tworzenie statków
     {
         timeShipSpawn -= Time.deltaTime;    
         if (timeShipSpawn < 0)
@@ -156,7 +156,7 @@ public class BaseScript : MonoBehaviour
             numbers++;
         }
     }
-    private void LvlUp(){
+    private void LvlUp(){   //Levelowanie bazy
         if (level == 1 && tytan >= 25)
         {
             level = 2;
@@ -183,7 +183,7 @@ public class BaseScript : MonoBehaviour
         }
 
     }
-    private void GetResources(Collider2D col){
+    private void GetResources(Collider2D col){  //Zbieranie zasobów ze statków
         ShipScript shipCapacity = col.GetComponent<ShipScript>();
             if (col.CompareTag(tag))
             {
@@ -201,7 +201,7 @@ public class BaseScript : MonoBehaviour
                 tytan += shipCapacity.tytanCapacity / 2;
                 stackShip++;
                 Destroy(col.gameObject);
-                gameManager.loseCheck(col.gameObject.tag);
+                gameManager.loseCheck(col.gameObject.tag);  //Je¿eli statek przeciwnika wleci w bazê, to sprawdza czy czasem to nie by³ ostatni statek
             }
     }
 

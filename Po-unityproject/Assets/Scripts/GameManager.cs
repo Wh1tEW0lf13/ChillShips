@@ -41,25 +41,25 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        simulationTime += Time.deltaTime;
+        simulationTime += Time.deltaTime;   //Ile trwa symulacja
         if(Input.GetKey(KeyCode.Escape))
         {
-            Application.Quit();
+            Application.Quit(); //  Gdy naciśnie się esc, wyłącza program
         }      
     }
-    void BaseCreator()
+    void BaseCreator()  // tworzenie bazy
     {  
         Instantiate(redBaseObject, Placement(1,0) , spin).name = "RedBase";
         Instantiate(blueBaseObject, Placement(0,1), spin).name = "BlueBase";
     }
-    void AsteroidCreator()
+    void AsteroidCreator()  // Tworzenie asteroid we świecie
     {
         for(int i = 0; i < asteroidQuantity; i++)
         Instantiate(QuerryAstroid, Placement(), spin).name = "QuerryAsteroid" + i;
         for(int i = 0; i < asteroidQuantity/asteroidRatio; i++)
         Instantiate(TrapAsteroid, Placement(), spin).name = "TrapAsteroid" + i;
     }
-    Vector3 Placement(int red, int blue)
+    Vector3 Placement(int red, int blue)    //  Ustawienie tak, by czerwona baza respiła się po lewej stronie mapy a niebieskia po prawej
     {
         return new Vector3(Random.Range(-xSpawn*red, xSpawn*blue), Random.Range(-ySpawn, ySpawn));
     }
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         return new Vector3(Random.Range(-xSpawn, xSpawn), Random.Range(-ySpawn, ySpawn));
     }
-    public void loseCheck(string tag)
+    public void loseCheck(string tag)   // Sprawdzanie czy symulacja się nie skończyła
     {
         var numberOfObjects = GameObject.FindGameObjectsWithTag(tag).Length;
         GameObject red = GameObject.Find("RedBase");
